@@ -16,17 +16,28 @@
 }
 
 /* hora */
+.container {
+    display: flex; /* Utiliza Flexbox para alinear elementos horizontalmente */
+    justify-content: space-between; /* Espacia elementos entre el inicio y el final del contenedor */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 10px; /* Espaciado interno del contenedor */
+}
+
+.left-text {
+    font-size: 1rem; /* Ajusta el tamaño del texto a la izquierda */
+    color: #ffffff; /* Color del texto */
+}
+
 .clock {
+    display: flex; /* Utiliza Flexbox para alinear elementos dentro del reloj */
+    align-items: center; /* Centra verticalmente los elementos */
     margin-left: 20px;
     font-size: 1.4rem;
     font-weight: 500;
     color: #ffffff;
-    padding: 0px 20px;
+    padding: 0px 10px; /* Espaciado alrededor del reloj */
     border-radius: 15px;
     text-shadow: 0px 0px 10px rgba(50, 205, 50, 0.75); /* Efecto de brillo digital */
-    position: absolute;
-    left: 90.2%;
-    margin-top: 60px;
 }
 
 .clock span {
@@ -37,7 +48,6 @@
 
 #ampm {
     font-size: 0.8rem;
-    vertical-align: center; /* Alinea AM/PM en la parte superior */
-    margin-left: 0px;
+    margin-left: 5px; /* Ajusta el margen a la izquierda */
     text-shadow: none;
 }

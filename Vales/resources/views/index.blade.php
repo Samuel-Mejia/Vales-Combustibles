@@ -9,9 +9,9 @@
     <title>Vales Combustibles</title>
 </head>
 
-<body class="bg-[#30475e]">
+<body class="bg-[#30475e] m-0 p-0 overflow-hidden">
 
-    <div class="relative flex flex-col sm:flex-row xl:flex-col items-center justify-center xl:h-full sm:h-auto">
+    <div class="relative flex flex-wrap flex-col sm:flex-row xl:flex-col items-center justify-center min-h-screen w-full">
         @if(session('user') && session('user')->username === 'admin')
         <!-- Botón para la perspectiva de administrador -->
         <a href="{{ url('/') }}">

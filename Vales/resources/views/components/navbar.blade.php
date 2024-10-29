@@ -6,18 +6,19 @@
             
         </div>
 
+        <div class="clock">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+            <span id="ampm">AM</span> <!-- Este nuevo span muestra AM o PM -->
+        </div>
         
 
-        <div class="flex flex-grow items-center justify-center space-x-3">
+        <div class="flex flex-grow items-center justify-center space-x-3 -ml-24">
             <h2 class="text-black font-bold text-xl">VALES DE COMBUSTIBLE</h2>
             <img src="{{ asset('img/gas-station_icon.png') }}" alt="Gasolinera" class="w-7 h-7">
         </div>
 
 
-        <div class="clock">
-            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-            <span id="ampm">AM</span> <!-- Este nuevo span muestra AM o PM -->
-        </div>
+       
 
 
         
