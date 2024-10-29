@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-start {
+    transition: transform 0.5s ease;
+}
+
+.button-start:hover {
+    transform: scale(1.1);
+}
+
+.img-icon-container img {
+    width: 50%;
+    margin: 50px;
+}
+
+/* hora */
+.clock {
+    margin-left: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 0px 20px;
+    border-radius: 15px;
+    text-shadow: 0px 0px 10px rgba(50, 205, 50, 0.75); /* Efecto de brillo digital */
+    position: absolute;
+    left: 90.2%;
+    margin-top: 60px;
+}
+
+.clock span {
+    display: inline-block;
+    min-width: 25px; /* Asegura que los dígitos tengan un ancho consistente */
+    text-align: center;
+}
+
+#ampm {
+    font-size: 0.8rem;
+    vertical-align: center; /* Alinea AM/PM en la parte superior */
+    margin-left: 0px;
+    text-shadow: none;
+}
