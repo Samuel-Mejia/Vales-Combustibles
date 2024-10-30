@@ -19,7 +19,20 @@ return new class extends Migration
             $table->string('password');
             $table->timestamps();
         });
+
+
+        DB::table('users')->insert([
+            'name' => 'Cruz',
+            'lastname' => 'Roja',
+            'username' => 'admin',
+            'password' => bcrypt('123'), // Asegúrate de hashear la contraseña
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
+
+
+    
 
     /**
      * Reverse the migrations.

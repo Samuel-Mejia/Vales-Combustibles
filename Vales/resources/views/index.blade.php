@@ -9,24 +9,20 @@
     <title>Vales Combustibles</title>
 </head>
 
-<body class="bg-[#30475e] m-0 p-0 overflow-hidden">
+<body class="bg-[#30475e]">
+
+
 
     <div class="relative flex flex-wrap flex-col sm:flex-row xl:flex-col items-center justify-center min-h-screen w-full">
-        @if(session('user') && session('user')->username === 'admin')
-        <!-- Botón para la perspectiva de administrador -->
-        <a href="{{ url('/') }}">
-        <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-        
-        Perspectiva General
-    </button>
-    </a>
-    @endif
-
+    
      @if(session('user') && session('user')->username === 'admin')
         <!-- Botón para la perspectiva de administrador -->
+        <a href="{{ url('/administrador') }}">
         <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-            Perspectiva de Administrador
-        </button>
+        
+        Perspectiva de Administrador
+    </button>
+    </a>
     @endif
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-y-10 gap-x-6 items-center p-8">
 

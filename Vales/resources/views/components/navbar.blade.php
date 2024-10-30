@@ -1,4 +1,33 @@
-<nav class="bg-[#f05454] border-gray-200 dark:bg-gray-900">
+<body>
+    
+
+<!-- <script>
+    // Define el tiempo en milisegundos (3 segundos)
+    const inactivityTime = 3000;
+
+    let inactivityTimer;
+
+    // Función para redirigir al cierre de sesión
+    function logout() {
+        window.location.href = "{{ url('/logout') }}";
+    }
+
+    // Reinicia el temporizador al detectar actividad
+    function resetTimer() {
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(logout, inactivityTime);
+    }
+
+    // Detecta eventos de actividad del usuario
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    document.onscroll = resetTimer;
+    document.onclick = resetTimer;
+</script> -->
+
+</body>
+<nav class="bg-[#f05454] border-gray-200 dark:bg-gray-900 absolute w-full z-10">
     <div class="w-full flex items-center justify-between mx-auto p-4">
         <!-- Contenedor para la imagen en la esquina izquierda -->
         <div class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -17,8 +46,6 @@
             <img src="{{ asset('img/gas-station_icon.png') }}" alt="Gasolinera" class="w-7 h-7">
         </div>
 
-
-       
 
 
         
