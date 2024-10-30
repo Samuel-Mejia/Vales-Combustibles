@@ -1460,185 +1460,29 @@
                 <hr />
             </div>
 
-            <div class="p-4 md:p-5 ">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-black uppercase bg-gray-50 rounded-t-lg">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                N.Solicitud
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Deptsoli
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                Serie de vale
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Autoriza
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Motorista
-                            </th>
-
-
-                        </tr>
-                    </thead>
-                </table>
-                <div class="relative overflow-x-auto shadow-md rounded-b-lg"
-                    style="max-width: 1700px; max-height: 300px; overflow: auto;">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope=""
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    ...
-                                </th>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                                <td class="px-6 py-4">
-                                    ...
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
+            <div class="overflow-x-auto max-w-full" style="max-height: 300px;">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-black bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3">Nsolicitud</th>
+                        <th class="px-6 py-3">Deptosoli</th>
+                        <th class="px-6 py-3">Serie de vale</th>
+                        <th class="px-6 py-3">Autoriza</th>
+                        <th class="px-6 py-3">Motorista</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b">
+                        <td class="px-6 py-4">...</td>
+                        <td class="px-6 py-4">...</td>
+                        <td class="px-6 py-4">...</td>
+                        <td class="px-6 py-4">...</td>
+                        <td class="px-6 py-4">...</td>
+                    </tr>
+                    <!-- Additional rows -->
+                </tbody>
+            </table>
+        </div>
         </div>
         <form method="dialog" class="modal-backdrop">
             <button>close</button>
