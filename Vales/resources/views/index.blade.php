@@ -15,7 +15,7 @@
     
     @if(session('user') && optional(session('user'))->username === 'admin')
     <!-- Botón para la perspectiva de administrador -->
-    <a href="{{ url('/administrador') }}">
+    <a href="{{ url('/sistema-administracion') }}">
         <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
             Perspectiva de Administrador
         </button>
