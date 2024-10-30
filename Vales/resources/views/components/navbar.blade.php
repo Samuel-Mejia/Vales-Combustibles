@@ -114,20 +114,45 @@
 
             <!-- Login o nombre de usuario -->
             <li>
-                @if (!session()->has('user'))
-                    <!-- Botón de Login -->
-                    <a href="{{ url('/login') }}"
-                        class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                        {{ __('Login') }}
-                    </a>
-                @else
-                    <!-- Opción de Logout en el menú responsive -->
-                    <a href="{{ url('/logout') }}"
-                        class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                @endif
+            <div class=" md:flex items-center">
+            @if (!session()->has('user'))
+                <!-- Botón de Login -->
+                <a href="{{ url('/login') }}"
+                    class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    {{ __('Login') }}
+                </a>
+            @else
+                <!-- Dropdown de usuario -->
+                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown2"
+                    class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button">
+                    <span>{{ session('user')->username }}</span>
+                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </button>
+
+                <div id="dropdown2"
+                    class="border border-blue-300 bg-[#30475e] hover:bg-[#465f79] z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-1 text-sm text-white rounded-lg bg-[#30475e] dark:text-gray-200"
+                        aria-labelledby="dropdownDefaultButton">
+                        <li>
+                            <a class="block px-4 py-2 hover:bg-[#465f79] dark:hover:bg-gray-600 dark:hover:text-white"
+                                href="{{ url('/logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
+            @endif
+        </div>
             </li>
         </ul>
     </div>
