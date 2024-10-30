@@ -27,8 +27,8 @@
 </script> -->
 
 </body>
-<nav class="bg-[#f05454] border-gray-200 dark:bg-gray-900 absolute w-full z-10">
-    <div class="w-full flex items-center justify-between mx-auto p-4">
+<nav class="bg-[#f05454] border-gray-200 dark:bg-gray-900 relative z-10 w-full">
+        <div class="w-full flex items-center justify-between mx-auto p-4">
         <!-- Contenedor para la imagen en la esquina izquierda -->
         <div class="flex items-center space-x-3 rtl:space-x-reverse">
             <a href="{{ url('/') }}"><img  src="{{ asset('img/cruz-roja-logo.jpeg') }}" class="h-[4rem]" alt="Flowbite Logo"></a>

@@ -10,12 +10,11 @@
 </head>
 
 <body class="bg-[#30475e]">
-
-
-
-    <div class="relative flex flex-wrap flex-col sm:flex-row xl:flex-col items-center justify-center min-h-screen w-full">
-    
-     @if(session('user') && session('user')->username === 'admin')
+<div
+        class="relative flex flex-wrap flex-col  items-center justify-center min-h-screen w-full">
+        <div class="flex relative flex-wrap flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-col items-center justify-center">
+            
+        @if(session('user') && session('user')->username === 'admin')
         <!-- Botón para la perspectiva de administrador -->
         <a href="{{ url('/administrador') }}">
         <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
@@ -24,6 +23,7 @@
     </button>
     </a>
     @endif
+        </div>
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-y-10 gap-x-6 items-center p-8">
 
             <a href="#" onclick="my_modal_1.showModal()">
@@ -127,6 +127,43 @@
                             </select>
                         </label>
                     </div>
+                </div>
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <label class="form-control flex-grow mr-4 w-11/12">
+                        <div class="label flex-grow ">
+                            <span class="label-text flex-grow text-white ">Fecha de Compra</span>
+                        </div>
+                        <input type="date" placeholder="Type here"
+                            class="bg-[#7b7f85] border-white text-white border  input input-bordered flex-grow" />
+                    </label>
+                    <label class="form-control flex-grow w-11/12">
+                        <div class="label flex-grow">
+                            <span class="label-text flex-grow text-white">#Orden de Compra</span>
+                        </div>
+                        <input type="number" placeholder="Type here"
+                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
+                    </label>
+                </div>
+                <div class="label">
+                    <span class="label-text text-white">Fecha Vigencia:</span>
+                </div>
+                <div class="grid gap-6 mb-6 md:grid-cols-3">
+                    <label class="form-control flex-grow w-10/12">
+                        <input type="date" placeholder="Type here"
+                            class="bg-[#7b7f85] border-white text-white border input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control flex-grow">
+                        <div class="label flex-grow">
+                            <span class="label-text flex-grow text-white text-center">Hasta</span>
+                        </div>
+                    </label>
+
+                    <label class="form-control flex-grow w-10/12">
+                        <input type="date" placeholder="Type here"
+                            class="bg-[#7b7f85] border-white text-white border input input-bordered w-full max-w-xs" />
+                    </label>
+                </div>
+                <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div>
                         <div class="label">
                             <span class="label-text text-white">Fecha Compra:</span>
@@ -382,7 +419,7 @@
                                 <td class="px-6 py-4">
                                     ...
                                 </td>
-                                <td class="px-6 py-4">
+                            <td class="px-6 py-4">
                                     ...
                                 </td>
                                 <td class="px-6 py-4">
