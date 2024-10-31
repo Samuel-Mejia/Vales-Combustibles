@@ -16,6 +16,28 @@
 
     <div class="flex justify-center items-center w-full min-h-screen px-4">
         <div class="relative overflow-x-auto shadow-md rounded-lg w-full max-w-4xl">
+
+            @if(session('success'))
+                <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div
                 class="flex items-center justify-between flex-wrap space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900 px-4 sm:px-6">
                 <div class="flex ">
@@ -82,108 +104,118 @@
         </div>
     </div>
 
-<!-- MODAL NUEVO USUARIO -->
-<dialog id="crud-modal"
-    class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
-    <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
-        <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Crear Nuevo Usuario</h3>
-            <button data-modal-toggle="crud-modal" class="text-gray-400 dark:text-gray-500">
-                <span class="sr-only">Cerrar modal</span>
-                ✖
-            </button>
-        </div>
-        <form class="mt-4" method="POST" action="{{ route('store.user') }}">
-            @csrf
-            <div class="grid gap-4 mb-4">
-                <div>
-                    <label for="name" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Nombre:</label>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}" required
-                        autocomplete="name" placeholder="Ingrese un nombre"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    @error('name')
-                        <span class="text-red-600">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div>
-                    <label for="lastname" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Apellido:</label>
-                    <input type="text" id="lastname" name="lastname" value="{{ old('lastname') }}" required
-                        autocomplete="lastname" placeholder="Ingrese un apellido"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    @error('lastname')
-                        <span class="text-red-600">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div>
-                    <label for="username" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Username:</label>
-                    <input type="text" id="username" name="username" value="{{ old('username') }}" required
-                        autocomplete="username" placeholder="Ingrese un nombre de usuario"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    @error('username')
-                        <span class="text-red-600">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div>
-                    <label for="password" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Contraseña:</label>
-                    <input type="password" id="password" name="password" required
-                        autocomplete="current-password" placeholder="Ingrese una contraseña"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    @error('password')
-                        <span class="text-red-600">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div>
-                    <label for="password-confirm" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Confirmar Contraseña:</label>
-                    <input type="password" id="password-confirm" name="password_confirmation" required
-                        autocomplete="new-password" placeholder="Confirme su contraseña"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                </div>
+    <!-- MODAL NUEVO USUARIO -->
+    <dialog id="crud-modal"
+        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
+            <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Crear Nuevo Usuario</h3>
+                <button data-modal-toggle="crud-modal" class="text-gray-400 dark:text-gray-500">
+                    <span class="sr-only">Cerrar modal</span>
+                    ✖
+                </button>
             </div>
-            <button type="submit"
-                class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg py-2 transition duration-200">
-                Registrar usuario
-            </button>
-        </form>
-    </div>
-</dialog>
+            <form class="mt-4" method="POST" action="{{ route('store.user') }}">
+                @csrf
+                <div class="grid gap-4 mb-4">
+                    <div>
+                        <label for="name"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Nombre:</label>
+                        <input type="text" id="name" name="name" value="{{ old('name') }}" required autocomplete="name"
+                            placeholder="Ingrese un nombre"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @error('name')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="lastname"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Apellido:</label>
+                        <input type="text" id="lastname" name="lastname" value="{{ old('lastname') }}" required
+                            autocomplete="lastname" placeholder="Ingrese un apellido"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @error('lastname')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="username"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Username:</label>
+                        <input type="text" id="username" name="username" value="{{ old('username') }}" required
+                            autocomplete="username" placeholder="Ingrese un nombre de usuario"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @error('username')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="password"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Contraseña:</label>
+                        <input type="password" id="password" name="password" required autocomplete="current-password"
+                            placeholder="Ingrese una contraseña"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @error('password')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="password-confirm"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Confirmar
+                            Contraseña:</label>
+                        <input type="password" id="password-confirm" name="password_confirmation" required
+                            autocomplete="new-password" placeholder="Confirme su contraseña"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg py-2 transition duration-200">
+                    Registrar usuario
+                </button>
+            </form>
+        </div>
+    </dialog>
 
-<!-- MODAL EDITAR USUARIO -->
-<dialog id="crud-modal2"
-    class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
-    <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
-        <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Editar Usuario</h3>
-            <button data-modal-toggle="crud-modal2" class="text-gray-400 dark:text-gray-500">
-                <span class="sr-only">Cerrar modal</span>
-                ✖
-            </button>
-        </div>
-        <form class="mt-4" method="POST" action="{{ route('update.user') }}">
-            @csrf
-            @method('PUT')
-            <input type="hidden" id="edit-user-id" name="id">
-            <div class="grid gap-4 mb-4">
-                <div>
-                    <label for="edit-name" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Nombre:</label>
-                    <input type="text" id="edit-name" name="name" required
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                </div>
-                <div>
-                    <label for="edit-lastname" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Apellido:</label>
-                    <input type="text" id="edit-lastname" name="lastname" required
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                </div>
-                <div>
-                    <label for="edit-username" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Username:</label>
-                    <input type="text" id="edit-username" name="username" required
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                </div>
+    <!-- MODAL EDITAR USUARIO -->
+    <dialog id="crud-modal2"
+        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
+            <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Editar Usuario</h3>
+                <button data-modal-toggle="crud-modal2" class="text-gray-400 dark:text-gray-500">
+                    <span class="sr-only">Cerrar modal</span>
+                    ✖
+                </button>
             </div>
-            <button type="submit"
-                class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg py-2 transition duration-200">Actualizar usuario</button>
-        </form>
-    </div>
-</dialog>
+            <form class="mt-4" method="POST" action="{{ route('update.user') }}">
+                @csrf
+                @method('PUT')
+                <input type="hidden" id="edit-user-id" name="id">
+                <div class="grid gap-4 mb-4">
+                    <div>
+                        <label for="edit-name"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Nombre:</label>
+                        <input type="text" id="edit-name" name="name" required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="edit-lastname"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Apellido:</label>
+                        <input type="text" id="edit-lastname" name="lastname" required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="edit-username"
+                            class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Username:</label>
+                        <input type="text" id="edit-username" name="username" required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg py-2 transition duration-200">Actualizar
+                    usuario</button>
+            </form>
+        </div>
+    </dialog>
 
 
     <script>
@@ -221,6 +253,20 @@
                 });
             });
         });
+
+        /*MENSAJES DE ERROR Y SUCCES*/
+        document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            const successMessage = document.querySelector('.bg-green-500');
+            const errorMessage = document.querySelector('.bg-red-500');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }, 5000); // Cambia 5000 por el número de milisegundos que desees
+    });
     </script>
 
 </body>
