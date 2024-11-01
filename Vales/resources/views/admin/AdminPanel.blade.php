@@ -47,7 +47,7 @@
                         Nuevo usuario
                     </button>
 
-                    @if(session('user') && session('user')->username === 'admin')
+                    @if(session('user') && optional(session('user'))->username === 'admin')
                         <a href="{{ url('/') }}">
                             <button type="button"
                                 class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 m-2">
