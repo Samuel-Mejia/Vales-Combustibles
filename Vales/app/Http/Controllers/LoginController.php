@@ -21,14 +21,6 @@ class LoginController extends Controller
      * Maneja el inicio de sesión del usuario.
      */
 
-     public function showAdminPanel()
-{
-    $users = User::all();
-    $currentUser = Session::get('user');
-    return view('admin.AdminPanel', compact('users', 'currentUser'));
-}
-
-
     public function login(Request $request)
     {
         // Valida los datos del formulario
@@ -45,7 +37,7 @@ class LoginController extends Controller
         if ($user && password_verify($request->password, $user->password)) {
             if ($user->username == 'admin') { // o $user->role == 'admin' si tienes roles en tu modelo
                 Session::put('user', $user);
-                return $this->showAdminPanel(); // Redirecciona al panel de admin
+                return redirect('/sistema-administracion'); // Redirecciona al panel de admin
             } else {
                 Session::put('user', $user);
                 return redirect('/'); // Redirecciona al usuario regular
