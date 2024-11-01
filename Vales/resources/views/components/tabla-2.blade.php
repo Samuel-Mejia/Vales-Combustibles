@@ -1,7 +1,7 @@
-<h1>
-    Registros de vales acreditados
-</h1>
-<br>
+
+<h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">
+Registros de vales acreditados
+        </h2>
 
 <div class="p-4 md:p-5 flex space-x-6">
     <!-- Tabla 1 -->
@@ -170,4 +170,9 @@
             </tbody>
         </table>
     </div>
+    
 </div>
+<div style="width: 100%; display: flex; justify-content: space-between;">
+                    <button class="btn btn-wide" style="margin-left: 1.5em">Guardar</button>
+                    <button class="btn btn-wide" style="margin-right: 1.5em">Cancelar</button>
+                </div>
