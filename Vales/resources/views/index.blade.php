@@ -80,14 +80,14 @@
         <div class="mb-2">
             <hr />
         </div>
-        <form class="p-4 md:p-5">
+        <form class="p-4 md:p-5"  method="POST">
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
                 <div>
                     <label class="form-control w-full">
                         <div class="label">
                             <span class="label-text text-white">Tipo de Combustible</span>
                         </div>
-                        <select class="bg-gray-50 border text-gray-500 border-gray-300 select select-bordered w-full">
+                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
                             <option>ESPECIAL</option>
                             <option>REGULAR</option>
                             <option>DIESEL</option>
@@ -99,7 +99,7 @@
                         <div class="label">
                             <span class="label-text text-white">Tipo de Fondo</span>
                         </div>
-                        <select class="bg-gray-50 border text-gray-500 border-gray-300 select select-bordered w-full">
+                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
                             <option>TESORERIA</option>
                             <option>RECURSOS PROPIOS</option>
                             <option>PROYECTO</option>
@@ -113,7 +113,7 @@
                         <div class="label">
                             <span class="label-text text-white">Programa</span>
                         </div>
-                        <select class="bg-white text-gray-500 border-gray-300 select select-bordered w-full">
+                        <select class="bg-white border-gray-300 select select-bordered w-full">
                             <option>NORMAL</option>
                             <option>SEMANA SANTA</option>
                             <option>FIESTAS AGOSTINAS</option>
@@ -137,7 +137,7 @@
                         <div class="label">
                             <span class="label-text text-white">#Orden de Compra</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -170,7 +170,7 @@
                         <div class="label">
                             <span class="label-text text-white">#Factura</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -180,7 +180,7 @@
                         <div class="label">
                             <span class="label-text text-white">NIT/Proveedor</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -190,7 +190,7 @@
                         <div class="label">
                             <span class="label-text text-white">Proveedor</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -202,7 +202,7 @@
                         <div class="label">
                             <span class="label-text text-white">Valor de vale</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -212,7 +212,7 @@
                         <div class="label">
                             <span class="label-text text-white">Precio de Referencia Actual</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -233,10 +233,10 @@
             <!-- Additional inputs -->
             <div class="mb-6">
                 <label class="label-text text-white">Observación:</label>
-                <textarea class="bg-white text-gray-500 textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
+                <textarea class="bg-white textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
             </div>
             <div class="w-full flex items-center justify-center">
-                    <button type="button"
+                    <button type="submit"
                         class="btn-block text-white border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out  hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
                         Generar
                     </button>
@@ -285,7 +285,7 @@
                 <button class="ml-4 btn btn-accent" @click="activeTab = 'tabla2'"
                     :class="{ 'btn-accent': activeTab === 'tabla2' }">Tabla 2</button>
             </div>
-        <form class="p-4 md:p-5 ">
+        <form class="p-4 md:p-5"  method="POST">
              
             <div class="mb-2">
             <hr />
@@ -323,22 +323,20 @@
             <div class="mb-2">
                 <hr />
             </div>
-            <form class="p-4 md:p-5 ">
+            <form class="p-4 md:p-5 "  method="POST" >
                 <div class="flex w-full mb-10 ">
                     <label class="form-control w-full flex-grow mr-4">
                         <div class="label flex-grow">
                             <span class="label-text text-white">Número de solicitud</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full " />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full " />
                     </label>
 
                     <label class="form-control w-full flex-grow">
                         <div class="label flex-grow">
                             <span class="label-text text-white">Programa:</span>
                         </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
                             <option>NORMAL</option>
                             <option>SEMANA SANTA</option>
                             <option>FIESTAS AGOSTINAS</option>
@@ -354,8 +352,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Solicita:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -363,8 +360,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Depto Solicita:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -372,8 +368,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Misión:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -381,8 +376,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Fecha procesada:</span>
                             </div>
-                            <input type="date" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="date" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -390,8 +384,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Destino:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -399,8 +392,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Autoriza:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -408,8 +400,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Motorista:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -417,8 +408,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Carnet:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -426,8 +416,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Tipo combustible:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
 
@@ -437,8 +426,7 @@
                         <div class="label">
                             <span class="label-text text-white">Estatus:</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                     </label>
                 </div>
 
@@ -454,8 +442,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Placa:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -463,8 +450,7 @@
                             <div class="label">
                                 <span class="label-text text-white">De compra:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -472,8 +458,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Actual:</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -486,16 +471,14 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Solicitados</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full " />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full " />
                     </label>
 
                     <label class="form-control w-full flex-grow mr-4">
                         <div class="label flex-grow">
                             <span class="label-text text-white">Digitados</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full " />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full " />
                     </label>
                 </div>
                 <div class="mb-6">
@@ -503,8 +486,7 @@
                         <div class="label">
                             <span class="label-text text-white">Serie de vale:</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                     </label>
                 </div>
                 <div class="flex w-full mb-10 ">
@@ -512,8 +494,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Serie:</span>
                         </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
                             <option>*</option>
                             <option>*</option>
                             <option>*</option>
@@ -525,8 +506,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Requisicion</span>
                         </div>
-                        <input type="text" placeholder="Type here"
-                            class="bg-white text-gray-500 input input-bordered w-full " />
+                        <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full " />
                     </label>
                 </div>
                 <div class="mb-2">
@@ -540,8 +520,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Kilom.INI:</span>
                             </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" min="0" />
+                            <input type="number" placeholder="Type here" class="text-black bg-white input input-bordered w-full" min="0" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -549,8 +528,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Kilom.FIN:</span>
                             </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" min="0" />
+                            <input type="number" placeholder="Type here" class="text-black bg-white input input-bordered w-full" min="0" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -558,8 +536,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Factura No.</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -567,8 +544,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Fecha Emisión:</span>
                             </div>
-                            <input type="date" placeholder="Type here"
-                                class="bg-[#7b7f85] border-white text-white input input-bordered w-full " />
+                            <input type="date" placeholder="Type here" class="text-black bg-[#7b7f85] border-white text-white input input-bordered w-full " />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -576,8 +552,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Tipo de Combustible</span>
                             </div>
-                            <select type="text" placeholder="Type here"
-                                class="bg-gray-50 border text-gray-500 border-gray-300 select select-bordered w-full ">
+                            <select type="text" placeholder="Type here" class="text-black bg-gray-50 border border-gray-300 select select-bordered w-full ">
                                 <option>ESPECIAL</option>
                                 <option>REGULAR</option>
                                 <option>DIESEL</option>
@@ -589,8 +564,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Valor total $</span>
                             </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" min="0" />
+                            <input type="number" placeholder="Type here" class="text-black bg-white input input-bordered w-full" min="0" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -598,8 +572,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Total Galones</span>
                             </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" min="0" />
+                            <input type="number" placeholder="Type here" class="text-black bg-white input input-bordered w-full" min="0" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -607,8 +580,7 @@
                             <div class="label">
                                 <span class="label-text text-white">No. Placa</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">
@@ -616,8 +588,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Liquidado</span>
                             </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-white text-gray-500 input input-bordered w-full" />
+                            <input type="text" placeholder="Type here" class="text-black bg-white input input-bordered w-full" />
                         </label>
                     </div>
                 </div>

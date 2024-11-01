@@ -6,7 +6,7 @@ Registros de vales acreditados
 <div class="p-4 md:p-5 flex space-x-6">
     <!-- Tabla 1 -->
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 25em; overflow: auto; width: 100%;">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -103,7 +103,7 @@ Registros de vales acreditados
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg"
         style="max-height: 25em; overflow: auto;">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -173,6 +173,6 @@ Registros de vales acreditados
     
 </div>
 <div style="width: 100%; display: flex; justify-content: space-between;">
-                    <button class="btn btn-wide" style="margin-left: 1.5em">Guardar</button>
-                    <button class="btn btn-wide" style="margin-right: 1.5em">Cancelar</button>
+                    <button type="submit" class="btn btn-wide" style="margin-left: 1.5em">Guardar</button>
+                    <button type="submit" class="btn btn-wide" style="margin-right: 1.5em">Cancelar</button>
                 </div>

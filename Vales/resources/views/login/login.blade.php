@@ -21,7 +21,7 @@
         </div>
                 <h2>¡Bienvenid@! 🚑</h2>
                 <p>Ingresa tus credenciales para iniciar sesión</p>
-                <form class="form form-register" method="POST" action="{{ route('login') }}">
+                <form class="form form-register" method="POST">
                     @csrf
                     <div>
                         <label>

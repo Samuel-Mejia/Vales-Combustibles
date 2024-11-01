@@ -1,5 +1,5 @@
 
-    
+<div>
         <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">
         Entrega de vales para combustible (Disel o gasolina)
         </h2>
@@ -14,7 +14,7 @@
                         <div class="label">
                             <span class="label-text text-white">Numero Solicitud</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -25,7 +25,7 @@
                         <div class="label">
                             <span class="label-text text-white">Programa</span>
                         </div>
-                        <select class="bg-gray-50 border text-gray-500 border-gray-300 select select-bordered w-full">
+                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -39,7 +39,7 @@
                         <div class="label">
                             <span class="label-text text-white">Suministra</span>
                         </div>
-                        <select class="bg-white text-gray-500 border-gray-300 select select-bordered w-full">
+                        <select class="bg-white border-gray-300 select select-bordered w-full">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -53,7 +53,7 @@
                         <div class="label">
                             <span class="label-text text-white">Solicita</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
                 <div>
@@ -61,7 +61,7 @@
                         <div class="label">
                             <span class="label-text text-white">Depto Solicita</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -100,7 +100,7 @@
                         <div class="label">
                             <span class="label-text text-white">Destino</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                         <div class="label">
                             <span class="label-text text-white">Proyecto</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
                 <div>
@@ -118,7 +118,7 @@
                         <div class="label">
                             <span class="label-text text-white">Autoriza</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -130,8 +130,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Combustible:</span>
                         </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
                             <option>*</option>
                             <option>*</option>
                             <option>*</option>
@@ -143,8 +142,7 @@
                         <div class="label flex-grow">
                             <span class="label-text flex-grow text-white"></span>
                         </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
+                        <input type="number" placeholder="Type here" class="text-black bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
                     </label>
                 </div>
             </div>
@@ -154,7 +152,7 @@
                         <div class="label">
                             <span class="label-text text-white">Conversión</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
                 <div>
@@ -162,7 +160,7 @@
                         <div class="label">
                             <span class="label-text text-white">Total de Galones por vale</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -174,8 +172,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Serie:</span>
                         </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
                             <option>*</option>
                             <option>*</option>
                             <option>*</option>
@@ -187,8 +184,7 @@
                         <div class="label flex-grow">
                             <span class="label-text flex-grow text-white">No. Requisición</span>
                         </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
+                        <input type="number" placeholder="Type here" class="text-black bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
                     </label>
                 </div>
             </div>
@@ -203,7 +199,7 @@
                         <div class="label">
                             <span class="label-text text-white">De Compra</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
                 <div>
@@ -211,7 +207,7 @@
                         <div class="label">
                             <span class="label-text text-white">Actual</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -228,7 +224,7 @@
                         <div class="label">
                             <span class="label-text text-white">Acturizador</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
                 <div>
@@ -236,7 +232,7 @@
                         <div class="label">
                             <span class="label-text text-white">Digitados</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                       
                         
                     </label>
@@ -252,18 +248,19 @@
                         <div class="label">
                             <span class="label-text text-white">Serie de Vale</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                        </label>
                 </div>
             </div>
             <!-- Additional inputs -->
             <div class="w-full flex items-center justify-center">
-                    <button type="button"
+                    <button type="submit"
                         class="btn-block text-white border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out  hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
                         Generar
                     </button>
                 </div>
         </form>
+        <br>
         <div class="mb-2">
             <hr />
         </div>
@@ -296,7 +293,4 @@
                 </tbody>
             </table>
         </div>
-  
-    <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
+    </div>
