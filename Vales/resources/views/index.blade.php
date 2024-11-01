@@ -6,24 +6,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
     <title>Vales Combustibles</title>
 </head>
 
 <body class="bg-[#30475e]">
 
+    <button @click="openModal = true">Open Modal</button>
 
+    <div
+        class="relative flex flex-wrap flex-col sm:flex-row xl:flex-col items-center justify-center min-h-screen w-full">
 
-    <div class="relative flex flex-wrap flex-col sm:flex-row xl:flex-col items-center justify-center min-h-screen w-full">
-    
-     @if(session('user') && session('user')->username === 'admin')
-        <!-- Botón para la perspectiva de administrador -->
-        <a href="{{ url('/administrador') }}">
-        <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-        
-        Perspectiva de Administrador
-    </button>
-    </a>
-    @endif
+        @if (session('user') && session('user')->username === 'admin')
+            <!-- Botón para la perspectiva de administrador -->
+            <a href="{{ url('/administrador') }}">
+                <button type="button"
+                    class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
+
+                    Perspectiva de Administrador
+                </button>
+            </a>
+        @endif
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-y-10 gap-x-6 items-center p-8">
 
             <a href="#" onclick="my_modal_1.showModal()">
@@ -221,8 +224,7 @@
                 </div>
                 <div class="mb-6">
                     <label class="label-text text-white ">Observación:</label>
-                    <textarea class="bg-white text-gray-500 textarea textarea-bordered w-full h-32 mt-1"
-                        placeholder=""></textarea>
+                    <textarea class="bg-white text-gray-500 textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
                 </div>
 
                 <div class="w-full flex items-center justify-center">
@@ -423,295 +425,35 @@
     </dialog>
 
     <!-- Model 2 -->
-    <dialog id="my_modal_2" class="modal ">
+    <dialog id="my_modal_2" class="modal " x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
         <div class="modal-box max-w-7xl bg-[#84878d]">
-            <h2 class="text-center font-bold text-white mb-3">Entrega de vales para combustible (Disel o gasolina) </h2>
+            <h2 class="text-center font-bold text-white mb-3">Entrega de vales para combustible (Disel o gasolina)
+            </h2>
+            <div class="mb-2">
+                <hr />
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center; margin: 0px 0px 10px 0px;">
+                <button class="mr-4 btn btn-accent" @click="activeTab = 'tabla1'"
+                    :class="{ 'btn-accent': activeTab === 'tabla1' }">Tabla 1</button>
+                <button class="ml-4 btn btn-accent" @click="activeTab = 'tabla2'"
+                    :class="{ 'btn-accent': activeTab === 'tabla2' }">Tabla 2</button>
+            </div>
             <div class="mb-2">
                 <hr />
             </div>
             <form class="p-4 md:p-5 ">
-
-                <div class="grid gap-2 mb-10 md:grid-cols-3">
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Numero Solicitud</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Programa</span>
-                            </div>
-                            <select type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 select select-bordered w-full max-w-xs">
-                                <option disabled selected>Who shot first?</option>
-                                <option>Han Solo</option>
-                                <option>Greedo</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Suministra</span>
-                            </div>
-                            <select type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 select select-bordered w-full max-w-xs">
-                                <option disabled selected>Who shot first?</option>
-                                <option>Han Solo</option>
-                                <option>Greedo</option>
-                            </select>
-                        </label>
-                    </div>
-
-                    <div class="dark:text-black">
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Solicita</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Depto Solicita</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text">Mision</span>
-                            </div>
-                            <textarea class="textarea textarea-ghost bg-gray-50 border border-gray-300"
-                                placeholder="Bio"></textarea>
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Fecha reserva</span>
-                            </div>
-                            <input type="date" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">F Vence</span>
-                            </div>
-                            <input type="date" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Destino</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Proyecto</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Autoriza</span>
-                            </div>
-                            <input type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-
-                    <!-- 
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Serie</span>
-                            </div>
-                            <select type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 select select-bordered w-full max-w-xs">
-                                <option disabled selected>Who shot first?</option>
-                                <option>...</option>
-                                <option>...</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text text-white">Combustible</span>
-                            </div>
-                            <select type="text" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 select select-bordered w-full max-w-xs">
-                                <option disabled selected>Who shot first?</option>
-                                <option>...</option>
-                                <option>...</option>
-                            </select>
-                            <div class="divider divider-error"></div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text">Convercion</span>
-                            </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                            <div class="divider divider-error">Total galones por VALE</div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div> -->
-                    <!-- <div>
-                        <label class="form-control w-full max-w-xs">
-                            <div class="label">
-                                <span class="label-text">No.Requisicion</span>
-                            </div>
-                            <input type="number" placeholder="Type here"
-                                class="bg-gray-50 border border-gray-300 input input-bordered w-full max-w-xs" />
-                        </label>
-                    </div> -->
-                </div>
-                <div class="flex w-full mb-10">
-                    <label class="form-control w-full flex-grow mr-4">
-                        <div class="label flex-grow">
-                            <span class="label-text text-white">Combustible:</span>
-                        </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                        </select>
-                    </label>
-                    <label class="form-control flex-grow">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white"></span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                </div>
-                <div class="flex w-full mb-10">
-                    <label class="form-control flex-grow mr-4">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">Conversión</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                    <label class="form-control flex-grow">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">Total de Galones por Vale</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                </div>
-                <div class="flex w-full mb-10">
-                    <label class="form-control w-full flex-grow mr-4">
-                        <div class="label flex-grow">
-                            <span class="label-text text-white">Serie:</span>
-                        </div>
-                        <select type="text" placeholder="Type here"
-                            class="bg-white text-gray-500  border-gray-300 select select-bordered w-full ">
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                        </select>
-                    </label>
-                    <label class="form-control flex-grow">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">No. Requisición</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                </div>
-                <div class="mb-2">
-                    <hr />
-                </div>
-                <div class=" text-white text-center font-bold">Precios de referencia</div>
-                <div class="flex w-full mb-10">
-                    <label class="form-control flex-grow mr-4">
-                        <div class="label flex-grow ">
-                            <span class="label-text flex-grow text-white ">De Compra</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                    <label class="form-control flex-grow">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">Actual</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                </div>
-                <div class="mb-2">
-                    <hr />
-                </div>
-                <div class=" text-white text-center font-bold">Cantidad de VALES</div>
-                <div class="flex w-full mb-10">
-                    <label class="form-control flex-grow mr-4">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">Autorizados</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                    <label class="form-control flex-grow">
-                        <div class="label flex-grow">
-                            <span class="label-text flex-grow text-white">Digitados</span>
-                        </div>
-                        <input type="number" placeholder="Type here"
-                            class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                    </label>
-                </div>
-                <div class="mb-2">
-                    <hr />
-                </div>
-                <label class="form-control flex-grow mb-10">
-                    <div class="label  flex-grow">
-                        <span class="label-text flex-grow text-white">Serie de Vale</span>
-                    </div>
-                    <input type="number" placeholder="Type here"
-                        class="bg-gray-50 border border-gray-300 input input-bordered flex-grow" />
-                </label>
-                <div class="w-full flex items-center justify-center">
-                    <button type="button"
-                        class="btn-block text-white border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out  hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
-                        Generar
-                    </button>
+                <div x-show="activeTab === 'tabla1'">
+                    @include('components.tabla-1')
                 </div>
 
+                <div x-show="activeTab === 'tabla2'">
+                    @include('components.tabla-2')
+                </div>
 
+                <div style="width: 100%; display: flex; justify-content: space-between;">
+                    <button class="btn btn-wide" style="margin-left: 1.5em">Guardar</button>
+                    <button class="btn btn-wide" style="margin-right: 1.5em">Cancelar</button>
+                </div>
             </form>
 
             <div class="mb-2">
@@ -873,12 +615,12 @@
         </form>
     </dialog>
 
-
-
-
-
-
-
+    <script>
+        document.querySelector('[onclick="document.getElementById(\'my_modal_2\').showModal()"]').addEventListener('click',
+            function() {
+                document.getElementById('my_modal_2').showModal();
+            });
+    </script>
 
     <!-- Main modal 2  -->
     <div id="crud-modal2" tabindex="-1" aria-hidden="true"
@@ -899,8 +641,8 @@
                         data-modal-toggle="crud-modal">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                         </svg>
                         <span class="sr-only">Close modal</span>
                     </button>
@@ -937,7 +679,8 @@
 
                     </div>
                     <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
                             address</label>
                         <input type="email" id="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -1091,6 +834,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal 3 -->
     <dialog id="my_modal_3" class="modal ">
