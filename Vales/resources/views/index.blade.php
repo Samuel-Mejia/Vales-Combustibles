@@ -80,17 +80,28 @@
         <div class="mb-2">
             <hr />
         </div>
-        <form class="p-4 md:p-5"  method="POST">
+        <form class="p-4 md:p-5" action="{{ route('vales.store') }}" method="POST">
+            @csrf
+            <div>
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text text-white">Corr</span>
+                    </div>
+                    <input type="text" name="corr" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
+                </label>
+            </div>
+
+            <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
                 <div>
                     <label class="form-control w-full">
                         <div class="label">
                             <span class="label-text text-white">Tipo de Combustible</span>
                         </div>
-                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
-                            <option>ESPECIAL</option>
-                            <option>REGULAR</option>
-                            <option>DIESEL</option>
+                        <select name="tipo_combustible" class="bg-gray-50 border border-gray-300 select select-bordered w-full">
+                            <option value="ESPECIAL">ESPECIAL</option>
+                            <option value="REGULAR">REGULAR</option>
+                            <option value="DIESEL">DIESEL</option>
                         </select>
                     </label>
                 </div>
@@ -99,12 +110,12 @@
                         <div class="label">
                             <span class="label-text text-white">Tipo de Fondo</span>
                         </div>
-                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
-                            <option>TESORERIA</option>
-                            <option>RECURSOS PROPIOS</option>
-                            <option>PROYECTO</option>
-                            <option>DONACION</option>
-                            <option>FONDO GOES</option>
+                        <select name="tipo_fondo" class="bg-gray-50 border border-gray-300 select select-bordered w-full">
+                            <option value="TESORERIA">TESORERIA</option>
+                            <option value="RECURSOS PROPIOS">RECURSOS PROPIOS</option>
+                            <option value="PROYECTO">PROYECTO</option>
+                            <option value="DONACION">DONACION</option>
+                            <option value="FONDO GOES">FONDO GOES</option>
                         </select>
                     </label>
                 </div>
@@ -113,23 +124,25 @@
                         <div class="label">
                             <span class="label-text text-white">Programa</span>
                         </div>
-                        <select class="bg-white border-gray-300 select select-bordered w-full">
-                            <option>NORMAL</option>
-                            <option>SEMANA SANTA</option>
-                            <option>FIESTAS AGOSTINAS</option>
-                            <option>FIN DE AÑO</option>
-                            <option>FINLANDESA</option>
+                        <select name="programa" class="bg-white border-gray-300 select select-bordered w-full">
+                            <option value="NORMAL">NORMAL</option>
+                            <option value="SEMANA SANTA">SEMANA SANTA</option>
+                            <option value="FIESTAS AGOSTINAS">FIESTAS AGOSTINAS</option>
+                            <option value="FIN DE AÑO">FIN DE AÑO</option>
+                            <option value="FINLANDESA">FINLANDESA</option>
                         </select>
                     </label>
                 </div>
             </div>
+
+            <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-2">
                 <div>
                     <label class="form-control w-full">
                         <div class="label">
                             <span class="label-text text-white">Fecha de Compra</span>
                         </div>
-                        <input type="date" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
+                        <input type="date" name="fecha_fac" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
                 </div>
                 <div>
@@ -137,42 +150,40 @@
                         <div class="label">
                             <span class="label-text text-white">#Orden de Compra</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="number" name="nocompra" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
             </div>
+
+            <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
                 <div>
                     <label class="form-control w-full">
-                    <div class="label">
-                    <span class="label-text text-white">Fecha Vigencia</span>
+                        <div class="label">
+                            <span class="label-text text-white">Fecha Vigencia</span>
                         </div>
-                       
-                        <input type="date" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
+                        <input type="date" name="feini" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
                 </div>
                 <div class="hidden md:flex items-center justify-center text-white p-12">Hasta</div>
                 <div>
                     <label class="form-control w-full">
-                    <div class="label">
-                    <span class="label-text text-white">&nbsp;</span>
+                        <div class="label">
+                            <span class="label-text text-white">&nbsp;</span>
                         </div>
-                    
-                        <input type="date" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
+                        <input type="date" name="fefin" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
                 </div>
             </div>
+
+            <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
-            <div>
+                <div>
                     <label class="form-control w-full">
                         <div class="label">
                             <span class="label-text text-white">#Factura</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="number" name="nfactura" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
                 <div>
@@ -180,9 +191,7 @@
                         <div class="label">
                             <span class="label-text text-white">NIT/Proveedor</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="text" name="proveedor" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
                 <div>
@@ -190,21 +199,19 @@
                         <div class="label">
                             <span class="label-text text-white">Proveedor</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="text" name="proveedor" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
             </div>
+
+            <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
-            <div>
+                <div>
                     <label class="form-control w-full">
                         <div class="label">
                             <span class="label-text text-white">Valor de vale</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="text" name="valorvale" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
                 <div>
@@ -212,62 +219,101 @@
                         <div class="label">
                             <span class="label-text text-white">Precio de Referencia Actual</span>
                         </div>
-                        <input type="text" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
-                      
-                        
+                        <input type="text" name="precio_referencia" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
                 </div>
                 <div>
                     <label class="form-control w-full">
-                    <div class="label">
-                                <span class="label-text text-white">Series de los vales:</span>
-                            </div>
-                        <input type="text" placeholder="Digite el Cuerpo del #de vale" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
                         <div class="label">
-                                <span class="label-text-alt text-white">Ejemplo "03112220836400"</span>
-                            </div>
+                            <span class="label-text text-white">Series de los vales</span>
+                        </div>
+                        <input type="text" name="serie_vale" placeholder="Digite el Cuerpo del #de vale" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <div class="label">
+                            <span class="label-text-alt text-black">Ejemplo "03112220836400"</span>
+                        </div>
                     </label>
                 </div>
             </div>
-            
-            <!-- Additional inputs -->
+
+            <!-- Correlativo -->
+            <div class="mb-2">
+                <hr />
+            </div>
+            <h2 class="text-center text-white font-bold mb-2 mt-[0.8rem] text-[1.2rem]">Digite el correlativo</h2>
+            <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-2">
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label">
+                            <span class="label-text text-white">Inicial</span>
+                        </div>
+                        <input type="number" name="correlativo_inicial" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
+                    </label>
+                </div>
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label">
+                            <span class="label-text text-white">Final</span>
+                        </div>
+                        <input type="number" name="correlativo_final" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
+                    </label>
+                </div>
+            </div>
+
+            <!-- Observación -->
             <div class="mb-6">
                 <label class="label-text text-white">Observación:</label>
-                <textarea class="bg-white textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
+                <textarea name="observacion" class="bg-white textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
             </div>
+
+            <!-- Botón de envío -->
             <div class="w-full flex items-center justify-center">
-                    <button type="submit"
-                        class="btn-block text-white border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out  hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
-                        Generar
-                    </button>
-                </div>
+                <button type="submit" class="btn-block text-black border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
+                    Generar
+                </button>
+            </div>
         </form>
+
         <div class="mb-2">
             <hr />
         </div>
         <div class="overflow-x-auto max-w-full" style="max-height: 300px;">
-            <table class="w-full text-sm text-left text-gray-500">
-                <thead class="text-xs text-black bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3">Corr</th>
-                        <th class="px-6 py-3">Nfactura</th>
-                        <th class="px-6 py-3">Ser_vale</th>
-                        <th class="px-6 py-3">Nocompra</th>
-                        <th class="px-6 py-3">Proveedor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-black bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3">Correlativo</th>
+                    <th class="px-6 py-3">#Factura</th>
+                    <th class="px-6 py-3">N°Compra</th>
+                    <th class="px-6 py-3">Valor Vale</th>
+                    <th class="px-6 py-3">Tipo de Combustible</th>
+                    <th class="px-6 py-3">Tipo de Fondo</th>
+                    <th class="px-6 py-3">Programa</th>
+                    <th class="px-6 py-3">Fecha Factura</th>
+                    <th class="px-6 py-3">Fecha Inicio</th>
+                    <th class="px-6 py-3">Fecha Fin</th>
+                    <th class="px-6 py-3">Serie de Vale</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($vales as $vale)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">...</td>
-                        <td class="px-6 py-4">...</td>
-                        <td class="px-6 py-4">...</td>
-                        <td class="px-6 py-4">...</td>
-                        <td class="px-6 py-4">...</td>
+                        <td class="px-6 py-4">{{ $vale->corr }}</td>
+                        <td class="px-6 py-4">{{ $vale->nfactura }}</td>
+                        <td class="px-6 py-4">{{ $vale->nocompra }}</td>
+                        <td class="px-6 py-4">{{ $vale->valorvale }}</td>
+                        <td class="px-6 py-4">{{ $vale->tipo_combustible }}</td>
+                        <td class="px-6 py-4">{{ $vale->tipo_fondo }}</td>
+                        <td class="px-6 py-4">{{ $vale->programa }}</td>
+                        <td class="px-6 py-4">{{ $vale->fecha_fac }}</td>
+                        <td class="px-6 py-4">{{ $vale->feini }}</td>
+                        <td class="px-6 py-4">{{ $vale->fefin }}</td>
+                        <td class="px-6 py-4">{{ $vale->serie_vale }}</td>
                     </tr>
-                    <!-- Additional rows -->
-                </tbody>
-            </table>
-        </div>
+                @endforeach
+            </tbody>
+        </table>
+
+
+</div>
     </div>
     <form method="dialog" class="modal-backdrop">
             <button>close</button>
@@ -336,7 +382,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Programa:</span>
                         </div>
-                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-gray-400 bg-white  border-gray-300 select select-bordered w-full ">
                             <option>NORMAL</option>
                             <option>SEMANA SANTA</option>
                             <option>FIESTAS AGOSTINAS</option>
@@ -352,7 +398,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Solicita:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -360,7 +406,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Depto Solicita:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -368,7 +414,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Misión:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -376,7 +422,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Fecha procesada:</span>
                             </div>
-                            <input type="date" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
+                            <input type="date" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full " disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -384,7 +430,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Destino:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -392,7 +438,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Autoriza:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -400,7 +446,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Motorista:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -408,7 +454,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Carnet:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
                     <div class="flex justify-center items-center">
@@ -416,7 +462,7 @@
                             <div class="label">
                                 <span class="label-text text-white">Tipo combustible:</span>
                             </div>
-                            <input type="text" placeholder="Type here" class="text-black bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
+                            <input type="text" placeholder="Type here" class=" bg-gray-200 text-gray-400 border-gray-300 rounded-md  w-full" disabled />
                         </label>
                     </div>
 
@@ -544,7 +590,7 @@
                             <div class="label">
                                 <span class="label-text text-white ">Fecha Emisión:</span>
                             </div>
-                            <input type="date" placeholder="Type here" class="text-black bg-[#7b7f85] border-white text-white input input-bordered w-full " />
+                            <input type="date" placeholder="Type here" class=" bg-[#7b7f85] border-white text-white input input-bordered w-full " />
                         </label>
                     </div>
                     <div class="flex items-center justify-center">

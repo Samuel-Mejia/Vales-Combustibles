@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ValesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,8 +24,9 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
+
 Route::get('/sistema-administracion', function () {
-    $users = User::all(); 
+    $users = User::all();
     return view('admin/AdminPanel', ['users' => $users, 'currentUser' => Session::get('user')]);
 });
 
@@ -35,9 +37,14 @@ Route::middleware(['checksession'])->group(function () {
         return view('index');
     });
     Route::get('/admin', function () {
-        $users = User::all(); 
+        $users = User::all();
         return view('admin/AdminPanel', ['users' => $users, 'currentUser' => Session::get('user')]);
     });
+
+    //Ruta de los vales
+    Route::get('/', [ValesController::class, 'index'])->name('vales.index');
+    Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
+
 
     //Rutas para el admin
     Route::post('/user/store', [UserController::class, 'store'])->name('store.user');

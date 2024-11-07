@@ -106,7 +106,7 @@
 
     <!-- MODAL NUEVO USUARIO -->
     <dialog id="crud-modal"
-        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
+        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
         <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
             <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Crear Nuevo Usuario</h3>
@@ -177,7 +177,7 @@
 
     <!-- MODAL EDITAR USUARIO -->
     <dialog id="crud-modal2"
-        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center p-4">
+        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
         <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full max-w-md p-6 mx-4">
             <div class="flex justify-between items-center pb-4 border-b dark:border-gray-600">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Editar Usuario</h3>
@@ -216,7 +216,7 @@
             </form>
         </div>
     </dialog>
-
+ 
 
     <script>
         function openEditModal(id, name, lastname, username) {
