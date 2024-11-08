@@ -98,7 +98,7 @@
                         <div class="label">
                             <span class="label-text text-white">Tipo de Combustible</span>
                         </div>
-                        <select name="tipo_combustible" class="bg-gray-50 border border-gray-300 select select-bordered w-full">
+                        <select name="tipo_combustible" class="bg-gray-50 text-black border border-gray-300 select select-bordered w-full">
                             <option value="ESPECIAL">ESPECIAL</option>
                             <option value="REGULAR">REGULAR</option>
                             <option value="DIESEL">DIESEL</option>
@@ -110,7 +110,7 @@
                         <div class="label">
                             <span class="label-text text-white">Tipo de Fondo</span>
                         </div>
-                        <select name="tipo_fondo" class="bg-gray-50 border border-gray-300 select select-bordered w-full">
+                        <select name="tipo_fondo" class="bg-gray-50 border text-black border-gray-300 select select-bordered w-full">
                             <option value="TESORERIA">TESORERIA</option>
                             <option value="RECURSOS PROPIOS">RECURSOS PROPIOS</option>
                             <option value="PROYECTO">PROYECTO</option>
@@ -124,7 +124,7 @@
                         <div class="label">
                             <span class="label-text text-white">Programa</span>
                         </div>
-                        <select name="programa" class="bg-white border-gray-300 select select-bordered w-full">
+                        <select name="programa" class="bg-white text-black border-gray-300 select select-bordered w-full">
                             <option value="NORMAL">NORMAL</option>
                             <option value="SEMANA SANTA">SEMANA SANTA</option>
                             <option value="FIESTAS AGOSTINAS">FIESTAS AGOSTINAS</option>
@@ -227,7 +227,7 @@
                         <div class="label">
                             <span class="label-text text-white">Series de los vales</span>
                         </div>
-                        <input type="text" name="serie_vale" placeholder="Digite el Cuerpo del #de vale" class="bg-gray-50 border-gray-300 input input-bordered w-full" />
+                        <input type="text" name="serie_vale" placeholder="Digite el Cuerpo del #de vale" class="bg-gray-50 text-black border-gray-300 input input-bordered w-full" />
                         <div class="label">
                             <span class="label-text-alt text-black">Ejemplo "03112220836400"</span>
                         </div>
@@ -262,12 +262,12 @@
             <!-- Observación -->
             <div class="mb-6">
                 <label class="label-text text-white">Observación:</label>
-                <textarea name="observacion" class="bg-white textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
+                <textarea name="observacion" class="bg-white text-black textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
             </div>
 
             <!-- Botón de envío -->
             <div class="w-full flex items-center justify-center">
-                <button type="submit" class="btn-block text-black border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
+                <button type="submit" class="btn-block text-white border border-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-colors duration-300 ease-in-out hover:text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-white dark:focus:ring-white text-[1.2rem]">
                     Generar
                 </button>
             </div>
