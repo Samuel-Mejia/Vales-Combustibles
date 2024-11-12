@@ -235,3 +235,31 @@
   .input_custom {
     background-color: inherit !important;
   }
+
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para el alert-danger */
+.alert-danger {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde rojo claro */
+}
+
+/* Icono de advertencia (opcional) */
+.alert-danger::before {
+    content: "⚠️"; /* Puedes usar un icono Unicode o agregar una imagen */
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Estilo para cuando el mensaje es muy largo */
+.alert-danger p {
+    margin: 0;
+}

@@ -28,7 +28,7 @@
 
 </body>
 
-<nav class="bg-[#f05454] relative w-full z-20 top-0 start-0 border-b dark:border-gray-600">
+<nav class="bg-[#f05454] lg:absolute md:relative w-full z-20 top-0 start-0 border-b dark:border-gray-600">
     <div class="flex items-center justify-between mx-auto p-4">
         <!-- Logo y Reloj (ocultos en modo responsive) -->
         <div class="hidden md:flex items-center space-x-3 disable-on-small">

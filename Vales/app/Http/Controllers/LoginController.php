@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,7 @@ class LoginController extends Controller
             }
         } else {
             // Maneja el error de autenticación (por ejemplo, redireccionar con un mensaje de error)
-            return redirect()->back()->withErrors(['login' => 'Credenciales incorrectas']);
+            return redirect()->back()->withInput()->withErrors(['login' => 'Usuario o contraseña incorrectos']);
         }
     }
 

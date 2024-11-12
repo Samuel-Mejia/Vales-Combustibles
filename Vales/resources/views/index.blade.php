@@ -23,6 +23,16 @@
     </a>
     @endif
 </div>
+            @if(session('success'))
+                <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('error') }}
+                </div>
+            @endif
 
         <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
 
@@ -89,6 +99,9 @@
                     </div>
                     <input type="text" name="corr" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                 </label>
+                @error('corr')
+                            <span class="text-red-600">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- Resto de los campos -->
@@ -104,6 +117,9 @@
                             <option value="DIESEL">DIESEL</option>
                         </select>
                     </label>
+                    @error('tipo_combustible')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -118,6 +134,9 @@
                             <option value="FONDO GOES">FONDO GOES</option>
                         </select>
                     </label>
+                    @error('tipo_fondo')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -132,6 +151,9 @@
                             <option value="FINLANDESA">FINLANDESA</option>
                         </select>
                     </label>
+                    @error('programa')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -144,6 +166,9 @@
                         </div>
                         <input type="date" name="fecha_fac" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
+                    @error('fecha_fac')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -152,10 +177,14 @@
                         </div>
                         <input type="number" name="nocompra" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('nocompra')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
+                
             </div>
 
-            <!-- Resto de los campos -->
+            
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
                 <div>
                     <label class="form-control w-full">
@@ -164,6 +193,9 @@
                         </div>
                         <input type="date" name="feini" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
+                    @error('feini')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="hidden md:flex items-center justify-center text-white p-12">Hasta</div>
                 <div>
@@ -173,7 +205,11 @@
                         </div>
                         <input type="date" name="fefin" class="bg-[#7b7f85] border-white text-white input input-bordered w-full" />
                     </label>
+                    @error('fefin')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
+                
             </div>
 
             <!-- Resto de los campos -->
@@ -185,6 +221,9 @@
                         </div>
                         <input type="number" name="nfactura" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('nfactura')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -193,6 +232,9 @@
                         </div>
                         <input type="text" name="proveedor" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('proveedor')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -201,6 +243,9 @@
                         </div>
                         <input type="text" name="proveedor" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('proveedor')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -213,6 +258,9 @@
                         </div>
                         <input type="text" name="valorvale" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('valorvale')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -221,6 +269,9 @@
                         </div>
                         <input type="text" name="precio_referencia" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('precio_referencia')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -232,6 +283,9 @@
                             <span class="label-text-alt text-black">Ejemplo "03112220836400"</span>
                         </div>
                     </label>
+                    @error('serie_vale')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -248,6 +302,9 @@
                         </div>
                         <input type="number" name="correlativo_inicial" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('correlativo_inicial')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label class="form-control w-full">
@@ -256,6 +313,9 @@
                         </div>
                         <input type="number" name="correlativo_final" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
                     </label>
+                    @error('correlativo_final')
+                            <span class="text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -263,6 +323,9 @@
             <div class="mb-6">
                 <label class="label-text text-white">Observación:</label>
                 <textarea name="observacion" class="bg-white text-black textarea textarea-bordered w-full h-32 mt-1" placeholder=""></textarea>
+                @error('observacion')
+                    <span class="text-red-600">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- Botón de envío -->
@@ -277,36 +340,36 @@
             <hr />
         </div>
         <div class="overflow-x-auto max-w-full" style="max-height: 300px;">
-        <table class="w-full text-sm text-left text-gray-500">
+        <table class="w-full border border-black text-sm text-left text-gray-500">
             <thead class="text-xs text-black bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3">Correlativo</th>
-                    <th class="px-6 py-3">#Factura</th>
-                    <th class="px-6 py-3">N°Compra</th>
-                    <th class="px-6 py-3">Valor Vale</th>
-                    <th class="px-6 py-3">Tipo de Combustible</th>
-                    <th class="px-6 py-3">Tipo de Fondo</th>
-                    <th class="px-6 py-3">Programa</th>
-                    <th class="px-6 py-3">Fecha Factura</th>
-                    <th class="px-6 py-3">Fecha Inicio</th>
-                    <th class="px-6 py-3">Fecha Fin</th>
-                    <th class="px-6 py-3">Serie de Vale</th>
+                    <th class="px-6 py-3 border border-black text-center">Correlativo</th>
+                    <th class="px-6 py-3 border border-black text-center">#Factura</th>
+                    <th class="px-6 py-3 border border-black text-center">N°Compra</th>
+                    <th class="px-6 py-3 border border-black text-center">Valor Vale</th>
+                    <th class="px-6 py-3 border border-black text-center">Tipo de Combustible</th>
+                    <th class="px-6 py-3 border border-black text-center">Tipo de Fondo</th>
+                    <th class="px-6 py-3 border border-black text-center">Programa</th>
+                    <th class="px-6 py-3 border border-black text-center">Fecha Factura</th>
+                    <th class="px-6 py-3 border border-black text-center">Fecha Inicio</th>
+                    <th class="px-6 py-3 border border-black text-center">Fecha Fin</th>
+                    <th class="px-6 py-3 border border-black text-centertext-center">Serie de Vale</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($vales as $vale)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">{{ $vale->corr }}</td>
-                        <td class="px-6 py-4">{{ $vale->nfactura }}</td>
-                        <td class="px-6 py-4">{{ $vale->nocompra }}</td>
-                        <td class="px-6 py-4">{{ $vale->valorvale }}</td>
-                        <td class="px-6 py-4">{{ $vale->tipo_combustible }}</td>
-                        <td class="px-6 py-4">{{ $vale->tipo_fondo }}</td>
-                        <td class="px-6 py-4">{{ $vale->programa }}</td>
-                        <td class="px-6 py-4">{{ $vale->fecha_fac }}</td>
-                        <td class="px-6 py-4">{{ $vale->feini }}</td>
-                        <td class="px-6 py-4">{{ $vale->fefin }}</td>
-                        <td class="px-6 py-4">{{ $vale->serie_vale }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->corr }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->nfactura }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->nocompra }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->valorvale }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->tipo_combustible }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->tipo_fondo }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->programa }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->fecha_fac }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->feini }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->fefin }}</td>
+                        <td class="px-6 py-4 border border-black text-center">{{ $vale->serie_vale }}</td>
                     </tr>
                 @endforeach
             </tbody>
