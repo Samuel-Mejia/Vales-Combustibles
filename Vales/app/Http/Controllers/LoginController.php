@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -20,14 +21,6 @@ class LoginController extends Controller
     /**
      * Maneja el inicio de sesión del usuario.
      */
-
-     public function showAdminPanel()
-{
-    $users = User::all();
-    $currentUser = Session::get('user');
-    return view('admin.AdminPanel', compact('users', 'currentUser'));
-}
-
 
     public function login(Request $request)
     {
@@ -45,14 +38,14 @@ class LoginController extends Controller
         if ($user && password_verify($request->password, $user->password)) {
             if ($user->username == 'admin') { // o $user->role == 'admin' si tienes roles en tu modelo
                 Session::put('user', $user);
-                return $this->showAdminPanel(); // Redirecciona al panel de admin
+                return redirect('/sistema-administracion'); // Redirecciona al panel de admin
             } else {
                 Session::put('user', $user);
                 return redirect('/'); // Redirecciona al usuario regular
             }
         } else {
             // Maneja el error de autenticación (por ejemplo, redireccionar con un mensaje de error)
-            return redirect()->back()->withErrors(['login' => 'Credenciales incorrectas']);
+            return redirect()->back()->withInput()->withErrors(['login' => 'Usuario o contraseña incorrectos']);
         }
     }
 

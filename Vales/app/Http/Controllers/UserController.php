@@ -18,29 +18,34 @@ class UserController extends Controller
 
     // Método para registrar un nuevo usuario
     public function store(Request $request)
-{
-    // Validación de los datos
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'lastname' => 'required|string|max:255',
-        'username' => 'required|string|max:255|unique:users,username',
-        'password' => 'required|string|min:8|confirmed',
-    ]);
+    {
+        // Validación de los datos
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username',
+            'password' => 'required|string|min:8|confirmed',
+        ], [
+            'username.unique' => 'El nombre de usuario ya ha sido utilizado.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+        ]);
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Crear el usuario
+        User::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'username' => $request->username,
+            'password' => bcrypt($request->password), // Encriptar la contraseña
+        ]);
+
+        return redirect('/admin')->with('success', 'Usuario creado correctamente');
     }
-
-    // Crear el usuario
-    User::create([
-        'name' => $request->name,
-        'lastname' => $request->lastname,
-        'username' => $request->username,
-        'password' => bcrypt($request->password), // Encriptar la contraseña
-    ]);
-
-    return redirect('/admin')->with('success', 'Usuario creado correctamente');
-}
 
     // Método para actualizar un usuario existente
     public function update(Request $request)
@@ -50,6 +55,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'username' => 'required|string|max:255',
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         if ($validator->fails()) {
@@ -81,5 +87,5 @@ class UserController extends Controller
         return redirect('/admin')->with('error', 'Usuario no encontrado');
     }
 
-    
+
 }
