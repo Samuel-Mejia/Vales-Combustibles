@@ -3,7 +3,6 @@
         <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">
         Entrega de vales para combustible (Disel o gasolina)
         </h2>
-
         <div class="mb-2">
             <hr />
         </div>
