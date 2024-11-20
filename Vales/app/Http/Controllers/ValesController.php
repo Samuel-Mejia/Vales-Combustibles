@@ -13,7 +13,10 @@ class ValesController extends Controller
     public function index()
     {
         $vales = Vale::all(); // Obtener todos los vales generados
-        return view('index', compact('vales')); // Pasar los vales a la vista
+        $correlativos = Vale::select('corr')
+            ->distinct()
+            ->get();
+        return view('index', compact('vales', 'correlativos')); // Pasar los vales a la vista
     }
     public function store(Request $request)
     {
@@ -65,7 +68,7 @@ class ValesController extends Controller
 
         // Lógica para generar los vales
         for ($i = $correlativoInicial; $i <= $correlativoFinal; $i++) {
-            
+
             Vale::create([
                 'corr' => $request->corr,
                 'tipo_combustible' => $request->tipo_combustible,
@@ -83,8 +86,100 @@ class ValesController extends Controller
                 'observacion' => $request->observacion,
             ]);
         }
-        
+
 
         return redirect()->back()->with('success', 'Vales generados exitosamente.');
+    }
+
+    public function edit($corr)
+    {
+        // Obtener el correlativo específico
+        $correlativo = Vale::where('corr', $corr)->first(); // o `find($corr)` si usas el ID
+
+        $vales = Vale::all(); // Obtener todos los vales generados
+
+        $correlativos = Vale::select('corr')
+            ->distinct()
+            ->get();
+
+        $vale = Vale::find($corr); // Por ejemplo, obtener el vale por su ID
+
+        // Si no existe, puedes redirigir o mostrar un error
+        if (!$correlativo) {
+            return redirect()->route('vales.index')->with('error', 'Correlativo no encontrado');
+        }
+
+        // Pasar el correlativo a la vista de edición
+        return view('components.hola', compact('correlativo', 'vales', 'correlativos', 'corr'));
+    }
+
+
+    public function updateByCorrelativo(Request $request, $corr)
+    {
+        // Inicializamos un array para almacenar los campos que se actualizarán
+        $dataToUpdate = [];
+
+        // Condicionalmente agregar los campos al array si no están vacíos
+        if ($request->has('tipo_combustible')) {
+            $dataToUpdate['tipo_combustible'] = $request->tipo_combustible;
+        }
+
+        if ($request->has('tipo_fondo')) {
+            $dataToUpdate['tipo_fondo'] = $request->tipo_fondo;
+        }
+
+        if ($request->has('programa')) {
+            $dataToUpdate['programa'] = $request->programa;
+        }
+
+        if ($request->has('fecha_fac')) {
+            $dataToUpdate['fecha_fac'] = $request->fecha_fac;
+        }
+
+        if ($request->has('nocompra')) {
+            $dataToUpdate['nocompra'] = $request->nocompra;
+        }
+
+        if ($request->has('feini')) {
+            $dataToUpdate['feini'] = $request->feini;
+        }
+
+        if ($request->has('fefin')) {
+            $dataToUpdate['fefin'] = $request->fefin;
+        }
+
+        if ($request->has('nfactura')) {
+            $dataToUpdate['nfactura'] = $request->nfactura;
+        }
+
+        if ($request->has('proveedor')) {
+            $dataToUpdate['proveedor'] = $request->proveedor;
+        }
+
+        if ($request->has('valorvale')) {
+            $dataToUpdate['valorvale'] = $request->valorvale;
+        }
+
+        if ($request->has('precio_referencia')) {
+            $dataToUpdate['precio_referencia'] = $request->precio_referencia;
+        }
+
+        if ($request->has('serie_vale')) {
+            $dataToUpdate['serie_vale'] = $request->serie_vale;
+        }
+
+        if ($request->has('observacion')) {
+            $dataToUpdate['observacion'] = $request->observacion;
+        }
+
+        // Actualizamos los registros con el correlativo
+        $updatedRows = Vale::where('corr', $corr)->update($dataToUpdate);
+
+        // Redirigir o devolver una respuesta
+        if ($updatedRows > 0) {
+            return redirect()->route('vales.index')->with('success', 'Registros actualizados correctamente');
+        } else {
+            return redirect()->route('vales.index')->with('error', 'No se encontraron registros para actualizar');
+        }
     }
 }
