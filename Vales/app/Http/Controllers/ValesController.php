@@ -20,7 +20,7 @@ class ValesController extends Controller
         // Validación de los datos
         $request->validate([
             'corr' => 'required|string|unique:vales,corr',
-            'tipo_combustible' => 'required|string|in:ESPECIAL,REGULAR,DIESEL',
+            'tipo_combustible' => 'required|string',
             'tipo_fondo' => 'required|string|in:TESORERIA,RECURSOS PROPIOS,PROYECTO,DONACION,FONDO GOES',
             'programa' => 'required|string|in:NORMAL,SEMANA SANTA,FIESTAS AGOSTINAS,FIN DE AÑO,FINLANDESA',
             'fecha_fac' => 'required|date',
@@ -79,7 +79,7 @@ class ValesController extends Controller
                 'proveedor' => $request->proveedor,
                 'valorvale' => $request->valorvale,
                 'precio_referencia' => $request->precio_referencia,
-                'serie_vale' => $request->serie_vale . '-' . str_pad($i, 6, '0', STR_PAD_LEFT),
+                'serie_vale' => $request->serie_vale . str_pad($i,  STR_PAD_LEFT),
                 'observacion' => $request->observacion,
             ]);
         }

@@ -93,7 +93,7 @@
         <form class="p-4 md:p-5" action="{{ route('vales.store') }}" method="POST">
             @csrf
             <div>
-                <label class="form-control w-full">
+                <label class="form-control w-full mb-5">
                     <div class="label">
                         <span class="label-text text-white">Corr</span>
                     </div>
@@ -106,55 +106,157 @@
 
             <!-- Resto de los campos -->
             <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
-                <div>
-                    <label class="form-control w-full">
+                <div x-data="{ open: false, seleccion: '', opciones: ['ESPECIAL', 'REGULAR', 'DIESEL'] }" class="form-control w-full text-black">
                         <div class="label">
                             <span class="label-text text-white">Tipo de Combustible</span>
                         </div>
-                        <select name="tipo_combustible" class="bg-gray-50 text-black border border-gray-300 select select-bordered w-full">
-                            <option value="ESPECIAL">ESPECIAL</option>
-                            <option value="REGULAR">REGULAR</option>
-                            <option value="DIESEL">DIESEL</option>
-                        </select>
-                    </label>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="tipo_combustible"
+                            placeholder="Selecciona o ingresa tipo de combustible"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"  
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
                     @error('tipo_combustible')
-                            <span class="text-red-600">{{ $message }}</span>
+                        <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
-                <div>
-                    <label class="form-control w-full">
+                <div x-data="{ open: false, seleccion: '', opciones: ['TESORERIA', 'RECURSOS PROPIOS', 'PROYECTO', 'DONACION', 'FONDO GOES'] }" class="form-control w-full text-black">
                         <div class="label">
                             <span class="label-text text-white">Tipo de Fondo</span>
                         </div>
-                        <select name="tipo_fondo" class="bg-gray-50 border text-black border-gray-300 select select-bordered w-full">
-                            <option value="TESORERIA">TESORERIA</option>
-                            <option value="RECURSOS PROPIOS">RECURSOS PROPIOS</option>
-                            <option value="PROYECTO">PROYECTO</option>
-                            <option value="DONACION">DONACION</option>
-                            <option value="FONDO GOES">FONDO GOES</option>
-                        </select>
-                    </label>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="tipo_fondo"
+                            placeholder="Selecciona o ingresa tipo de fondo"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"  
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
                     @error('tipo_fondo')
-                            <span class="text-red-600">{{ $message }}</span>
+                        <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
-                <div>
-                    <label class="form-control w-full">
+                <div x-data="{ open: false, seleccion: '', opciones: ['NORMAL', 'SEMANA SANTA', 'FIESTAS AGOSTINAS', 'FIN DE AÑO', 'FINLANDESA'] }" class="form-control w-full text-black">
                         <div class="label">
-                            <span class="label-text text-white">Programa</span>
+                            <span class="label-text text-white">PROGRAMA</span>
                         </div>
-                        <select name="programa" class="bg-white text-black border-gray-300 select select-bordered w-full">
-                            <option value="NORMAL">NORMAL</option>
-                            <option value="SEMANA SANTA">SEMANA SANTA</option>
-                            <option value="FIESTAS AGOSTINAS">FIESTAS AGOSTINAS</option>
-                            <option value="FIN DE AÑO">FIN DE AÑO</option>
-                            <option value="FINLANDESA">FINLANDESA</option>
-                        </select>
-                    </label>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="programa"
+                            placeholder="Selecciona o ingresa un programa"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"  
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
                     @error('programa')
-                            <span class="text-red-600">{{ $message }}</span>
+                        <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
+                
             </div>
 
             <!-- Resto de los campos -->
@@ -353,23 +455,23 @@
                     <th class="px-6 py-3 border border-black text-center">Fecha Factura</th>
                     <th class="px-6 py-3 border border-black text-center">Fecha Inicio</th>
                     <th class="px-6 py-3 border border-black text-center">Fecha Fin</th>
-                    <th class="px-6 py-3 border border-black text-centertext-center">Serie de Vale</th>
+                    <th class="px-6 py-3 border border-black text-center">Serie de Vale</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($vales as $vale)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->corr }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->nfactura }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->nocompra }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->valorvale }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->tipo_combustible }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->tipo_fondo }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->programa }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->fecha_fac }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->feini }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->fefin }}</td>
-                        <td class="px-6 py-4 border border-black text-center">{{ $vale->serie_vale }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->corr }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nfactura }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nocompra }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->valorvale }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->tipo_combustible }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->tipo_fondo }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->programa }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fecha_fac }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->feini }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fefin }}</td>
+                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->serie_vale }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -445,7 +547,7 @@
                         <div class="label flex-grow">
                             <span class="label-text text-white">Programa:</span>
                         </div>
-                        <select type="text" placeholder="Type here" class="text-gray-400 bg-white  border-gray-300 select select-bordered w-full ">
+                        <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
                             <option>NORMAL</option>
                             <option>SEMANA SANTA</option>
                             <option>FIESTAS AGOSTINAS</option>
@@ -752,6 +854,21 @@
             <button>close</button>
         </form>
     </dialog>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            const successMessage = document.querySelector('.bg-green-500');
+            const errorMessage = document.querySelector('.bg-red-500');
+            
+            if (successMessage) successMessage.style.display = 'none';
+            
+            
+            if (errorMessage) errorMessage.style.display = 'none';
+        }, 5000); // Cambia 5000 por el número de milisegundos que desees
+        });
+    </script>
+    
 
 </body>
 

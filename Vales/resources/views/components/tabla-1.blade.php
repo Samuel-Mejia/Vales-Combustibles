@@ -25,7 +25,7 @@
                         <div class="label">
                             <span class="label-text text-white">Programa</span>
                         </div>
-                        <select class="bg-gray-50 border border-gray-300 select select-bordered w-full">
+                        <select class="bg-gray-50 text-black border border-gray-300 select select-bordered w-full">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -39,7 +39,7 @@
                         <div class="label">
                             <span class="label-text text-white">Suministra</span>
                         </div>
-                        <select class="bg-white border-gray-300 select select-bordered w-full">
+                        <select class="bg-white text-black border-gray-300 select select-bordered w-full">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -67,11 +67,11 @@
                     </label>
                 </div>
                 <div>
-                        <label class="form-control w-full">
-                            <div class="label">
+                        <label class="form-control w-full ">
+                            <div class="label ">
                                 <span class="label-text  text-white">Mision</span>
                             </div>
-                            <textarea class="textarea textarea-ghost bg-gray-50 border border-gray-300 input input-bordered w-full"
+                            <textarea class="textarea text-black bg-gray-50 border border-gray-300 input input-bordered w-full"
                                 placeholder="Bio"></textarea>
                         </label>
                     </div>
