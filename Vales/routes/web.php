@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ValesController;
+use App\Http\Controllers\EntregaValesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,17 +37,15 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/', function () {
         return view('index');
     });
-    Route::get('/admin', function () {
-        $users = User::all();
-        return view('admin/AdminPanel', ['users' => $users, 'currentUser' => Session::get('user')]);
-    });
-
-    //Ruta de los vales
+    
+    // Ruta de los vales
     Route::get('/', [ValesController::class, 'index'])->name('vales.index');
     Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
 
+    // Ruta de los entregavales
+    Route::post('/entregavales', [EntregaValesController::class, 'store'])->name('entregavales.store');
 
-    //Rutas para el admin
+    // Rutas para el admin
     Route::post('/user/store', [UserController::class, 'store'])->name('store.user');
     Route::put('/user/update', [UserController::class, 'update'])->name('update.user');
     Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('delete.user');

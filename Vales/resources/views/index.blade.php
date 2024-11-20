@@ -496,12 +496,7 @@
                 <button class="ml-4 btn btn-accent" @click="activeTab = 'tabla2'"
                     :class="{ 'btn-accent': activeTab === 'tabla2' }">Tabla 2</button>
             </div>
-        <form class="p-4 md:p-5"  method="POST">
-             
-            <div class="mb-2">
-            <hr />
-        </div>
-                <div x-show="activeTab === 'tabla1'">
+            <div x-show="activeTab === 'tabla1'">
                     @include('components.tabla-1')
                 </div>
 
@@ -509,8 +504,6 @@
                     @include('components.tabla-2')
                 </div>
 
-                
-            </form>
     </div>
     <form method="dialog" class="modal-backdrop">
             <button>close</button>
