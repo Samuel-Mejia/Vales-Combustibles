@@ -131,7 +131,7 @@
                             <span class="label-text text-white">Combustible:</span>
                         </div>
                         <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
-                            <option>DISEL</option>
+                            <option>DIESEL</option>
                             <option>GASOLINA</option>
                         </select>
                     </label>
