@@ -13,7 +13,8 @@ class ValesController extends Controller
     public function index()
     {
         $vales = Vale::all(); // Obtener todos los vales generados
-        return view('index', compact('vales')); // Pasar los vales a la vista
+        $ultimoCorr = Vale::max('corr') ?? 0; //último valor de "corr"
+        return view('index', compact('vales', 'ultimoCorr')); // Pasar los vales a la vista
     }
     public function store(Request $request)
     {
@@ -32,8 +33,8 @@ class ValesController extends Controller
             'valorvale' => 'required|numeric',
             'precio_referencia' => 'required|numeric',
             'serie_vale' => 'required|string|max:255',
-            'correlativo_inicial' => 'required|numeric|lt:correlativo_final',
-            'correlativo_final' => 'required|numeric|gt:correlativo_inicial',
+            'correlativo_inicial' => 'required|numeric|lte:correlativo_final',
+            'correlativo_final' => 'required|numeric|gte:correlativo_inicial',
             'observacion' => 'nullable|string|max:500',
         ], [
             'corr.required' => 'El campo "Corr" es obligatorio.',
@@ -53,8 +54,8 @@ class ValesController extends Controller
             'correlativo_inicial.required' => 'El correlativo inicial es obligatorio.',
             'correlativo_final.required' => 'El correlativo final es obligatorio.',
             'observacion.max' => 'La observación no puede tener más de 500 caracteres.',
-            'correlativo_inicial.lt' => 'El correlativo inicial debe ser menor que el correlativo final.',
-            'correlativo_final.gt' => 'El correlativo final debe ser mayor que el correlativo inicial.',
+            'correlativo_inicial.lte' => 'El correlativo inicial debe ser menor que el correlativo final.',
+            'correlativo_final.gte' => 'El correlativo final debe ser mayor que el correlativo inicial.',
             'feini.before_or_equal' => 'La fecha de inicio no puede ser posterior a la fecha de fin.',
             'fefin.after_or_equal' => 'La fecha de fin no puede ser anterior a la fecha de inicio.',
         ]);
@@ -63,9 +64,16 @@ class ValesController extends Controller
         $correlativoInicial = $request->correlativo_inicial;
         $correlativoFinal = $request->correlativo_final;
 
+        // Obtener el último valor de "corr" y sumar 1 para el nuevo inicio
+        $ultimoCorr = Vale::max('corr') ?? 0;
+        $nuevoCorr = $ultimoCorr + 1;
+
+        // Extraer los correlativos inicial y final del request
+        $correlativoFinal = $correlativoInicial + ($request->correlativo_final - $request->correlativo_inicial);
+
         // Lógica para generar los vales
         for ($i = $correlativoInicial; $i <= $correlativoFinal; $i++) {
-            
+
             Vale::create([
                 'corr' => $request->corr,
                 'tipo_combustible' => $request->tipo_combustible,
@@ -83,7 +91,7 @@ class ValesController extends Controller
                 'observacion' => $request->observacion,
             ]);
         }
-        
+
 
         return redirect()->back()->with('success', 'Vales generados exitosamente.');
     }
