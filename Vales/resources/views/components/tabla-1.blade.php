@@ -26,11 +26,11 @@
                             <span class="label-text text-white">Programa</span>
                         </div>
                         <select class="bg-gray-50 text-black border border-gray-300 select select-bordered w-full">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>NORMAL</option>
+                            <option>SEMANA SANTA</option>
+                            <option>FIESTAS AGOSTINAS</option>
+                            <option>FIN DE AÑO</option>
+                            <option>FINLANDESA</option>
                         </select>
                     </label>
                 </div>
@@ -131,11 +131,8 @@
                             <span class="label-text text-white">Combustible:</span>
                         </div>
                         <select type="text" placeholder="Type here" class="text-black bg-white  border-gray-300 select select-bordered w-full ">
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
-                            <option>*</option>
+                            <option>DISEL</option>
+                            <option>GASOLINA</option>
                         </select>
                     </label>
                     <label class="form-control flex-grow">
