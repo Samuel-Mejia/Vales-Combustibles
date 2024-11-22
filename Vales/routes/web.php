@@ -43,6 +43,7 @@ Route::middleware(['checksession'])->group(function () {
     Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
 
     // Ruta de los entregavales
+    Route::get('/entregavales/list', [EntregaValesController::class, 'entregavalesList']);  // Para obtener los entregavales
     Route::post('/entregavales', [EntregaValesController::class, 'store'])->name('entregavales.store');
 
     // Rutas para el admin

@@ -10,11 +10,19 @@ use Illuminate\Http\Request;
 class EntregaValesController extends Controller
 {
 
-    // public function index()
-    // {
-    //     $entregavales = EntregaVale::all(); 
-    //     return view('index', compact('entregavales')); 
-    // }
+    public function index()
+    {
+        return view('index');  
+    }
+
+    public function entregavalesList()
+    {
+        // Obtener todos los registros de la tabla EntregaVale
+        $entregavales = EntregaVale::all();
+        
+        // Devolver los datos como JSON
+        return response()->json($entregavales);  // Esto debe devolver los entregavales en formato JSON
+    }
 
     public function store(Request $request)
     {
@@ -34,15 +42,15 @@ class EntregaValesController extends Controller
             'proyecto' => 'required|string|max:200',
             'autoriza' => 'required|string|max:100',
             'combustible' => 'required|string|max:20',
-            'cantidad_combustible' => 'required|numeric',
-            'conversion' => 'required|numeric',
-            'serie' => 'required|string|max:50',
-            'no_requisicion' => 'required|string|max:50',
-            'precio_compra' => 'nullable|numeric',
-            'precio_actual' => 'nullable|numeric',
-            'autorizados' => 'nullable|string|max:100',
-            'digitados' => 'nullable|string|max:100',
-            'serie_vale' => 'nullable|string|max:100',
+            // 'cantidad_combustible' => 'required|numeric',
+            // 'conversion' => 'required|numeric',
+            // 'serie' => 'required|string|max:50',
+            // 'no_requisicion' => 'required|string|max:50',
+            // 'precio_compra' => 'nullable|numeric',
+            // 'precio_actual' => 'nullable|numeric',
+            // 'autorizados' => 'nullable|string|max:100',
+            // 'digitados' => 'nullable|string|max:100',
+            // 'serie_vale' => 'nullable|string|max:100',
         ]);
 
 
@@ -61,15 +69,15 @@ class EntregaValesController extends Controller
             'proyecto' => $request->proyecto,
             'autoriza' => $request->autoriza,
             'combustible' => $request->combustible,
-            'cantidad_combustible' => $request->cantidad_combustible,
-            'conversion' => $request->conversion,
-            'serie' => $request->serie,
-            'no_requisicion' => $request->no_requisicion,
-            'precio_compra' => $request->precio_compra,
-            'precio_actual' => $request->precio_actual,
-            'autorizados' => $request->autorizados,
-            'digitados' => $request->digitados,
-            'serie_vale' => $request->serie_vale,
+            // 'cantidad_combustible' => $request->cantidad_combustible,
+            // 'conversion' => $request->conversion,
+            // 'serie' => $request->serie,
+            // 'no_requisicion' => $request->no_requisicion,
+            // 'precio_compra' => $request->precio_compra,
+            // 'precio_actual' => $request->precio_actual,
+            // 'autorizados' => $request->autorizados,
+            // 'digitados' => $request->digitados,
+            // 'serie_vale' => $request->serie_vale,
         ]);
 
         return redirect()->back()->with('success', 'Vales generados exitosamente.');
