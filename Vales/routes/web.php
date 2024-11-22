@@ -37,7 +37,7 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/', function () {
         return view('index');
     });
-    
+
     // Ruta de los vales
     Route::get('/', [ValesController::class, 'index'])->name('vales.index');
     Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
@@ -48,6 +48,8 @@ Route::middleware(['checksession'])->group(function () {
 
     // Rutas para el admin
     Route::post('/user/store', [UserController::class, 'store'])->name('store.user');
+    Route::get('/vales/{corr}/edit', [ValesController::class, 'edit'])->name('vales.edit');
+    Route::post('/vales/{corr}/update', [ValesController::class, 'updateByCorrelativo'])->name('vales.update');
     Route::put('/user/update', [UserController::class, 'update'])->name('update.user');
     Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('delete.user');
 
