@@ -187,6 +187,18 @@
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
         </div>
+        <div>
+            <label class="form-control w-full">
+                <div class="label">
+                    <span class="label-text text-white">Observaciones</span>
+                </div>
+                <input type="text" name="observacion" value="{{ old('observacion', $correlativo->observacion) }}" placeholder="Type here"
+                    class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" />
+            </label>
+            @error('observacion')
+                <span class="text-red-600">{{ $message }}</span>
+            @enderror
+        </div>
     </div>
 
     <div class="flex gap-6">
