@@ -30,108 +30,64 @@
                 {{ session('success') }}
             </div>
         @endif
-    </div>
-    @if (session('success'))
-        <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
-            {{ session('success') }}
+        @if (session('error'))
+            <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
+
+            <a href="#" onclick="my_modal_1.showModal()">
+                {{-- button 1 --}}
+                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                    <figure class="img-icon-container">
+                        <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Ingreso de vales de combustible</h2>
+                        <p>&nbsp; Bodega general</p>
+                    </div>
+                </div>
+                {{-- button 1 end --}}
+            </a>
+
+            <a href="#" onclick="my_modal_2.showModal()">
+                {{-- button 2 --}}
+                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                    <figure class="img-icon-container">
+                        <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Entrega de vales para combustible</h2>
+                        <p>&nbsp; (Diesel o gasolina)</p>
+                    </div>
+                </div>
+                {{-- button 2 end --}}
+            </a>
+
+            <a href="#" onclick="my_modal_3.showModal()">
+                {{-- button 3 --}}
+                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                    <figure class="img-icon-container">
+                        <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Liquidación de vales en bodega general</h2>
+                    </div>
+                </div>
+                {{-- button 3 end --}}
+            </a>
         </div>
-    @endif
-    @if (session('error'))
-        <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <div
-        class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
-
-        <a href="#" onclick="my_modal_1.showModal()">
-            {{-- button 1 --}}
-            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                <figure class="img-icon-container">
-                    <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Ingreso de vales de combustible</h2>
-                    <p>&nbsp; Bodega general</p>
-                </div>
-            </div>
-            {{-- button 1 end --}}
-        </a>
-
-        <a href="#" onclick="my_modal_2.showModal()">
-            {{-- button 2 --}}
-            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                <figure class="img-icon-container">
-                    <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Entrega de vales para combustible</h2>
-                    <p>&nbsp; (Diesel o gasolina)</p>
-                </div>
-            </div>
-            {{-- button 2 end --}}
-        </a>
-
-        <a href="#" data-modal-target="my_modal_1" data-modal-toggle="my_modal_1">
-            {{-- button 1 --}}
-            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                <figure class="img-icon-container">
-                    <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Ingreso de vales de combustible</h2>
-                    <p>&nbsp; Bodega general</p>
-                </div>
-            </div>
-            {{-- button 1 end --}}
-        </a>
-
-        <a href="#" data-modal-target="my_modal_2" data-modal-toggle="my_modal_2">
-            {{-- button 2 --}}
-            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                <figure class="img-icon-container">
-                    <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Entrega de vales para combustible</h2>
-                    <p>&nbsp; (Diesel o gasolina)</p>
-                </div>
-            </div>
-            {{-- button 2 end --}}
-        </a>
-
-        <a href="#" data-modal-target="my_modal_3" data-modal-toggle="my_modal_3">
-            {{-- button 3 --}}
-            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                <figure class="img-icon-container">
-                    <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Liquidación de vales en bodega general</h2>
-                </div>
-            </div>
-            {{-- button 3 end --}}
-        </a>
-    </div>
 
     </div>
 
     <!-- Modal 1 -->
-    <dialog id="my_modal_1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4"
-        x-data="{ activeView: 'ingresoVales' }" @click.outside="openModal = false">
+    <dialog id="my_modal_1" class="modal" x-data="{ activeView: 'ingresoVales' }" @click.outside="openModal = false">
         <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
             <!-- Botones para seleccionar el contenido -->
             <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 10px;">
-                <button data-modal-toggle="my_modal_1"
-                    class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
-                        <path
-                            d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                    </svg>
-                    <span class="sr-only">Cerrar modal</span>
-                </button>
                 <button class="mr-4 btn btn-accent" @click="activeView = 'ingresoVales'">
                     Ingreso de Vales
                 </button>
@@ -149,53 +105,14 @@
                 @include('components.updateVales')
             </div>
 
-        </div>
-        <div class="overflow-x-auto max-w-full" style="max-height: 300px;">
-            <table class="w-full border border-black text-sm text-left text-gray-500">
-                <thead class="text-xs text-black bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 border border-black text-center">Correlativo</th>
-                        <th class="px-6 py-3 border border-black text-center">#Factura</th>
-                        <th class="px-6 py-3 border border-black text-center">N°Compra</th>
-                        <th class="px-6 py-3 border border-black text-center">Valor Vale</th>
-                        <th class="px-6 py-3 border border-black text-center">Tipo de Combustible</th>
-                        <th class="px-6 py-3 border border-black text-center">Tipo de Fondo</th>
-                        <th class="px-6 py-3 border border-black text-center">Programa</th>
-                        <th class="px-6 py-3 border border-black text-center">Fecha Factura</th>
-                        <th class="px-6 py-3 border border-black text-center">Fecha Inicio</th>
-                        <th class="px-6 py-3 border border-black text-center">Fecha Fin</th>
-                        <th class="px-6 py-3 border border-black text-center">Serie de Vale</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($vales as $vale)
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->corr }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nfactura }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nocompra }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->valorvale }}
-                            </td>
-                            <td class="px-6 py-4 border border-black text-black text-center">
-                                {{ $vale->tipo_combustible }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->tipo_fondo }}
-                            </td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->programa }}
-                            </td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fecha_fac }}
-                            </td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->feini }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fefin }}</td>
-                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->serie_vale }}
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            @yield('hola')
 
-            <!-- Botón para cerrar -->
-            <form method="dialog" class="modal-backdrop">
-                <button>close</button>
-            </form>
+        </div>
+
+        <!-- Botón para cerrar -->
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
     </dialog>
 
     <!-- Script para abrir el modal -->
@@ -207,19 +124,9 @@
 
 
     <!-- Model 2 -->
-    <dialog id="my_modal_2" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4"
-        x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
+    <dialog id="my_modal_2" class="modal " x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
         <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
 
-            <button data-modal-toggle="my_modal_2"
-                class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
-                    <path
-                        d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                </svg>
-                <span class="sr-only">Cerrar modal</span>
-            </button>
 
             <div style="width: 100%; display: flex; justify-content: center; margin: 0px 0px 10px 0px;">
                 <button class="mr-4 btn btn-accent" @click="activeTab = 'tabla1'"
@@ -227,14 +134,20 @@
                 <button class="ml-4 btn btn-accent" @click="activeTab = 'tabla2'"
                     :class="{ 'btn-accent': activeTab === 'tabla2' }">Tabla 2</button>
             </div>
-            <div x-show="activeTab === 'tabla1'">
-                @include('components.tabla-1')
-            </div>
+            <form class="p-4 md:p-5" method="POST">
 
-            <div x-show="activeTab === 'tabla2'">
-                @include('components.tabla-2')
-            </div>
+                <div class="mb-2">
+                    <hr />
+                </div>
+                <div x-show="activeTab === 'tabla1'">
+                    @include('components.tabla-1')
+                </div>
 
+                <div x-show="activeTab === 'tabla2'">
+                    @include('components.tabla-2')
+                </div>
+
+            </form>
         </div>
         <form method="dialog" class="modal-backdrop">
             <button>close</button>
@@ -250,17 +163,8 @@
 
 
     <!-- Modal 3 -->
-    <dialog id="my_modal_3" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-        class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
+    <dialog id="my_modal_3" class="modal ">
         <div class="modal-box max-w-7xl bg-[#84878d]">
-            <button data-modal-toggle="my_modal_3"
-                class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
-                    <path
-                        d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                </svg>
-                <span class="sr-only">Cerrar modal</span>
-            </button>
             <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">Liquidación Vales de
                 Combustibles
             </h2>
@@ -283,7 +187,7 @@
                             <span class="label-text text-white">Programa:</span>
                         </div>
                         <select type="text" placeholder="Type here"
-                            class="text-black bg-white  border-gray-300 select select-bordered w-full ">
+                            class="text-gray-400 bg-white  border-gray-300 select select-bordered w-full ">
                             <option>NORMAL</option>
                             <option>SEMANA SANTA</option>
                             <option>FIESTAS AGOSTINAS</option>
@@ -617,21 +521,6 @@
             <button>close</button>
         </form>
     </dialog>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const successMessage = document.querySelector('.bg-green-500');
-                const errorMessage = document.querySelector('.bg-red-500');
-
-                if (successMessage) successMessage.style.display = 'none';
-
-
-                if (errorMessage) errorMessage.style.display = 'none';
-            }, 5000); // Cambia 5000 por el número de milisegundos que desees
-        });
-    </script>
-
 
 </body>
 
