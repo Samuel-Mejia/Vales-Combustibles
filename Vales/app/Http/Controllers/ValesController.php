@@ -16,7 +16,8 @@ class ValesController extends Controller
         $correlativos = Vale::select('corr')
             ->distinct()
             ->get();
-        return view('index', compact('vales', 'correlativos')); // Pasar los vales a la vista
+        $ultimoCorr = Vale::max('corr') ?? 0; //último valor de "corr"
+        return view('index', compact('vales', 'ultimoCorr', 'correlativos')); // Pasar los vales a la vista
     }
     public function store(Request $request)
     {

@@ -45,9 +45,10 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/', [ValesController::class, 'index'])->name('vales.index');
     Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
 
-    Route::get('/vales/{corr}/edit', [ValesController::class, 'edit'])->name('vales.edit');
-    Route::post('/vales/{corr}/update', [ValesController::class, 'updateByCorrelativo'])->name('vales.update');
-                //Rutas para el admin
+    // Ruta de los entregavales
+    Route::post('/entregavales', [EntregaValesController::class, 'store'])->name('entregavales.store');
+
+    // Rutas para el admin
     Route::post('/user/store', [UserController::class, 'store'])->name('store.user');
     Route::put('/user/update', [UserController::class, 'update'])->name('update.user');
     Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('delete.user');
