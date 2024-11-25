@@ -36,7 +36,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
 
-    <a href="#" onclick="my_modal_1.showModal()">
+        <a href="#" data-modal-target="my_modal_1" data-modal-toggle="my_modal_1">
         {{-- button 1 --}}
         <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
             <figure class="img-icon-container">
@@ -147,7 +147,7 @@
         {{-- button 1 end --}}
     </a>
 
-    <a href="#" onclick="my_modal_2.showModal()">
+    <a href="#" data-modal-target="my_modal_2" data-modal-toggle="my_modal_2">
         {{-- button 2 --}}
         <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
             <figure class="img-icon-container">
@@ -161,7 +161,7 @@
         {{-- button 2 end --}}
     </a>
 
-    <a href="#" onclick="my_modal_3.showModal()">
+    <a href="#" data-modal-target="my_modal_3" data-modal-toggle="my_modal_3">
         {{-- button 3 --}}
         <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
             <figure class="img-icon-container">
@@ -179,6 +179,7 @@
     </div>
 
     <!-- Modal 1 -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <dialog id="my_modal_1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
@@ -574,7 +575,17 @@
             </div>
 =======
     <dialog id="my_modal_1" class="modal">
+=======
+    <dialog id="my_modal_1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
+>>>>>>> Steve
     <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
+    <button data-modal-toggle="my_modal_1" 
+        class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
+            <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/>
+        </svg>
+        <span class="sr-only">Cerrar modal</span>
+    </button>
         <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">
             Ingreso de vales de combustible a bodega general
         </h2>
@@ -949,7 +960,6 @@
                     <th class="px-6 py-3 border border-black text-center">Fecha Inicio</th>
                     <th class="px-6 py-3 border border-black text-center">Fecha Fin</th>
                     <th class="px-6 py-3 border border-black text-center">Serie de Vale</th>
-                    <th class="px-6 py-3 border border-black text-center">Observación</th>
                 </tr>
             </thead>
             <tbody>
@@ -966,8 +976,6 @@
                         <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->feini }}</td>
                         <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fefin }}</td>
                         <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->serie_vale }}</td>
-                        <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->observacion }}</td>
-
                     </tr>
                 @endforeach
             </tbody>
@@ -982,6 +990,7 @@
 </dialog>
 
     <!-- Model 2 -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <dialog id="my_modal_2" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4" x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
@@ -1012,6 +1021,17 @@
     <dialog id="my_modal_2" class="modal " x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
     <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
 
+>>>>>>> Steve
+=======
+    <dialog id="my_modal_2" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4" x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">    <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
+
+    <button data-modal-toggle="my_modal_2" 
+        class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
+            <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/>
+        </svg>
+        <span class="sr-only">Cerrar modal</span>
+    </button>
 >>>>>>> Steve
 
     <div style="width: 100%; display: flex; justify-content: center; margin: 0px 0px 10px 0px;">
@@ -1045,6 +1065,7 @@
     <!-- Modal 3 -->
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <dialog id="my_modal_3" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
         <div class="modal-box max-w-7xl bg-[#84878d]">
             <button data-modal-toggle="my_modal_3" 
@@ -1060,8 +1081,18 @@
 =======
     <dialog id="my_modal_3" class="modal ">
 >>>>>>> Steve
+=======
+    <dialog id="my_modal_3" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
+>>>>>>> Steve
         <div class="modal-box max-w-7xl bg-[#84878d]">
-            <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">Liquidación Vales de
+        <button data-modal-toggle="my_modal_3" 
+        class="flex items-center justify-center w-8 h-8 text-white hover:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 absolute right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4" fill="currentColor">
+            <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/>
+        </svg>
+        <span class="sr-only">Cerrar modal</span>
+    </button>
+        <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">Liquidación Vales de
                 Combustibles
             </h2>
 >>>>>>> main
