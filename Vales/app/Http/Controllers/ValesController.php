@@ -110,8 +110,7 @@ class ValesController extends Controller
             ->distinct()
             ->get();
 
-        $vale = Vale::find($corr); // Por ejemplo, obtener el vale por su ID}
-        $ultimoCorr = Vale::max('corr') ?? 0; //último valor de "corr"
+        $vale = Vale::find($corr); // Por ejemplo, obtener el vale por su ID
 
         // Si no existe, puedes redirigir o mostrar un error
         if (!$correlativo) {
@@ -119,7 +118,7 @@ class ValesController extends Controller
         }
 
         // Pasar el correlativo a la vista de edición
-        return view('components.hola', compact('correlativo', 'vales', 'correlativos', 'corr', 'ultimoCorr'));
+        return view('components.hola', compact('correlativo', 'vales', 'correlativos', 'corr'));
     }
 
 

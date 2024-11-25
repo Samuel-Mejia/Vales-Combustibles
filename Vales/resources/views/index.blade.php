@@ -15,70 +15,105 @@
         <div
             class="flex relative flex-wrap flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-col items-center justify-center pt-7">
 
-    @if(session('user') && optional(session('user'))->username === 'admin')
-    <!-- Botón para la perspectiva de administrador -->
-    <a href="{{ url('/sistema-administracion') }}">
-        <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-            Perspectiva de Administrador
-        </button>
-    </a>
-    @endif
-</div>
-            @if(session('success'))
-                <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
-                    {{ session('success') }}
-                </div>
+            @if (session('user') && optional(session('user'))->username === 'admin')
+                <!-- Botón para la perspectiva de administrador -->
+                <a href="{{ url('/sistema-administracion') }}">
+                    <button type="button"
+                        class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
+                        Perspectiva de Administrador
+                    </button>
+                </a>
             @endif
-            @if(session('error'))
-                <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-                    {{ session('error') }}
-                </div>
-            @endif
-
-        <div
-            class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
-
-            <a href="#" data-modal-target="my_modal_1" data-modal-toggle="my_modal_1">
-                {{-- button 1 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Ingreso de vales de combustible</h2>
-                        <p>&nbsp; Bodega general</p>
-                    </div>
-                </div>
-                {{-- button 1 end --}}
-            </a>
-
-            <a href="#" data-modal-target="my_modal_2" data-modal-toggle="my_modal_2">
-                {{-- button 2 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Entrega de vales para combustible</h2>
-                        <p>&nbsp; (Diesel o gasolina)</p>
-                    </div>
-                </div>
-                {{-- button 2 end --}}
-            </a>
-
-            <a href="#" data-modal-target="my_modal_3" data-modal-toggle="my_modal_3">
-                {{-- button 3 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Liquidación de vales en bodega general</h2>
-                    </div>
-                </div>
-                {{-- button 3 end --}}
-            </a>
         </div>
+        @if (session('success'))
+            <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+    @if (session('success'))
+        <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <div
+        class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
+
+        <a href="#" onclick="my_modal_1.showModal()">
+            {{-- button 1 --}}
+            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                <figure class="img-icon-container">
+                    <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Ingreso de vales de combustible</h2>
+                    <p>&nbsp; Bodega general</p>
+                </div>
+            </div>
+            {{-- button 1 end --}}
+        </a>
+
+        <a href="#" onclick="my_modal_2.showModal()">
+            {{-- button 2 --}}
+            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                <figure class="img-icon-container">
+                    <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Entrega de vales para combustible</h2>
+                    <p>&nbsp; (Diesel o gasolina)</p>
+                </div>
+            </div>
+            {{-- button 2 end --}}
+        </a>
+
+        <a href="#" data-modal-target="my_modal_1" data-modal-toggle="my_modal_1">
+            {{-- button 1 --}}
+            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                <figure class="img-icon-container">
+                    <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Ingreso de vales de combustible</h2>
+                    <p>&nbsp; Bodega general</p>
+                </div>
+            </div>
+            {{-- button 1 end --}}
+        </a>
+
+        <a href="#" data-modal-target="my_modal_2" data-modal-toggle="my_modal_2">
+            {{-- button 2 --}}
+            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                <figure class="img-icon-container">
+                    <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Entrega de vales para combustible</h2>
+                    <p>&nbsp; (Diesel o gasolina)</p>
+                </div>
+            </div>
+            {{-- button 2 end --}}
+        </a>
+
+        <a href="#" data-modal-target="my_modal_3" data-modal-toggle="my_modal_3">
+            {{-- button 3 --}}
+            <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+                <figure class="img-icon-container">
+                    <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Liquidación de vales en bodega general</h2>
+                </div>
+            </div>
+            {{-- button 3 end --}}
+        </a>
+    </div>
 
     </div>
 
@@ -115,6 +150,47 @@
             </div>
 
         </div>
+        <div class="overflow-x-auto max-w-full" style="max-height: 300px;">
+            <table class="w-full border border-black text-sm text-left text-gray-500">
+                <thead class="text-xs text-black bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 border border-black text-center">Correlativo</th>
+                        <th class="px-6 py-3 border border-black text-center">#Factura</th>
+                        <th class="px-6 py-3 border border-black text-center">N°Compra</th>
+                        <th class="px-6 py-3 border border-black text-center">Valor Vale</th>
+                        <th class="px-6 py-3 border border-black text-center">Tipo de Combustible</th>
+                        <th class="px-6 py-3 border border-black text-center">Tipo de Fondo</th>
+                        <th class="px-6 py-3 border border-black text-center">Programa</th>
+                        <th class="px-6 py-3 border border-black text-center">Fecha Factura</th>
+                        <th class="px-6 py-3 border border-black text-center">Fecha Inicio</th>
+                        <th class="px-6 py-3 border border-black text-center">Fecha Fin</th>
+                        <th class="px-6 py-3 border border-black text-center">Serie de Vale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($vales as $vale)
+                        <tr class="bg-white border-b">
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->corr }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nfactura }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->nocompra }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->valorvale }}
+                            </td>
+                            <td class="px-6 py-4 border border-black text-black text-center">
+                                {{ $vale->tipo_combustible }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->tipo_fondo }}
+                            </td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->programa }}
+                            </td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fecha_fac }}
+                            </td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->feini }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->fefin }}</td>
+                            <td class="px-6 py-4 border border-black text-black text-center">{{ $vale->serie_vale }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
             <!-- Botón para cerrar -->
             <form method="dialog" class="modal-backdrop">
