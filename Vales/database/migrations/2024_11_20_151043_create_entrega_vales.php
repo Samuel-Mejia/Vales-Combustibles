@@ -27,15 +27,15 @@ return new class extends Migration
             $table->string('proyecto');
             $table->string('autoriza');
             $table->string('combustible');
-            // $table->float('cantidad_combustible');
-            // $table->float('conversion');
-            // $table->string('serie');
-            // $table->string('no_requisicion');
-            // $table->float('precio_compra')->nullable();
-            // $table->float('precio_actual')->nullable();
-            // $table->string('autorizados')->nullable();
-            // $table->string('digitados')->nullable();
-            // $table->string('serie_vale')->nullable();
+            $table->float('cantidad_combustible');
+            $table->float('conversion');
+            $table->string('serie');
+            $table->string('no_requisicion');
+            $table->float('precio_compra')->nullable();
+            $table->float('precio_actual')->nullable();
+            $table->string('autorizados')->nullable();
+            $table->string('digitados')->nullable();
+            $table->string('serie_vale')->nullable();
             $table->timestamps();
         });
     }

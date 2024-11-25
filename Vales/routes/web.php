@@ -46,7 +46,6 @@ Route::middleware(['checksession'])->group(function () {
     Route::post('/vales/{corr}/update', [ValesController::class, 'updateByCorrelativo'])->name('vales.update');
     //Rutas para el admin
     // Ruta de los entregavales
-    Route::get('/entregavales/list', [EntregaValesController::class, 'entregavalesList']);  // Para obtener los entregavales
     Route::post('/entregavales', [EntregaValesController::class, 'store'])->name('entregavales.store');
 
     // Rutas para el admin
