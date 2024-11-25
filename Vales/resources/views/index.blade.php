@@ -39,61 +39,227 @@
         <div
             class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
 
-            <a href="#" onclick="my_modal_1.showModal()">
-                {{-- button 1 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Ingreso de vales de combustible</h2>
-                        <p>&nbsp; Bodega general</p>
-                    </div>
-                </div>
-                {{-- button 1 end --}}
-            </a>
-
-            <a href="#" onclick="my_modal_2.showModal()">
-                {{-- button 2 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Entrega de vales para combustible</h2>
-                        <p>&nbsp; (Diesel o gasolina)</p>
-                    </div>
-                </div>
-                {{-- button 2 end --}}
-            </a>
-
-            <a href="#" onclick="my_modal_3.showModal()">
-                {{-- button 3 --}}
-                <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
-                    <figure class="img-icon-container">
-                        <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Liquidación de vales en bodega general</h2>
-                    </div>
-                </div>
-                {{-- button 3 end --}}
-            </a>
+    <a href="#" onclick="my_modal_1.showModal()">
+        {{-- button 1 --}}
+        <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+            <figure class="img-icon-container">
+                <img src="{{ asset('img/gas-station.png') }}" alt="gas-station" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Ingreso de vales de combustible</h2>
+                <p>&nbsp; Bodega general</p>
+            </div>
         </div>
+        {{-- button 1 end --}}
+    </a>
+
+    <a href="#" onclick="my_modal_2.showModal()">
+        {{-- button 2 --}}
+        <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+            <figure class="img-icon-container">
+                <img src="{{ asset('img/warehouse-icon-2.png') }}" alt="vouchers" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Entrega de vales para combustible</h2>
+                <p>&nbsp; (Diesel o gasolina)</p>
+            </div>
+        </div>
+        {{-- button 2 end --}}
+    </a>
+
+    <a href="#" onclick="my_modal_3.showModal()">
+        {{-- button 3 --}}
+        <div class="card card-compact bg-base-100 w-full sm:w-80 md:w-96 shadow-xl button-start">
+            <figure class="img-icon-container">
+                <img src="{{ asset('img/proyecto-de-ley.png') }}" alt="vouchers" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Liquidación de vales en bodega general</h2>
+            </div>
+        </div>
+        {{-- button 3 end --}}
+    </a>
+</div>
 
     </div>
 
     <!-- Modal 1 -->
-    <dialog id="my_modal_1" class="modal" x-data="{ activeView: 'ingresoVales' }" @click.outside="openModal = false">
-        <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
-            <!-- Botones para seleccionar el contenido -->
-            <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 10px;">
-                <button class="mr-4 btn btn-accent" @click="activeView = 'ingresoVales'">
-                    Ingreso de Vales
-                </button>
-                <button class="ml-4 btn btn-accent" @click="activeView = 'updateVales'">
-                    Actualización de Vales
-                </button>
+    <dialog id="my_modal_1" class="modal">
+    <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
+        <h2 class="text-center text-white font-bold mb-[1.6rem] mt-[0.8rem] text-[1.2rem]">
+            Ingreso de vales de combustible a bodega general
+        </h2>
+
+        <div class="mb-2">
+            <hr />
+        </div>
+        <form class="p-4 md:p-5" action="{{ route('vales.store') }}" method="POST">
+            @csrf
+            <div>
+                <label class="form-control w-full mb-5">
+                    <div class="label">
+                        <span class="label-text text-white">Corr</span>
+                    </div>
+                    <input type="text" name="corr" placeholder="Type here" class="text-black bg-gray-50 border-gray-300 input input-bordered w-full" value="{{ $ultimoCorr + 1 }}" readonly/>
+                </label>
+                @error('corr')
+                            <span class="text-red-600">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Resto de los campos -->
+            <div class="grid gap-6 mb-6 grid-cols-1 md:grid-cols-3">
+                <div x-data="{ open: false, seleccion: '', opciones: ['ESPECIAL', 'REGULAR', 'DIESEL'] }" class="form-control w-full text-black">
+                        <div class="label">
+                            <span class="label-text text-white">Tipo de Combustible</span>
+                        </div>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="tipo_combustible"
+                            placeholder="Selecciona o ingresa tipo de combustible"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    @error('tipo_combustible')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div x-data="{ open: false, seleccion: '', opciones: ['TESORERIA', 'RECURSOS PROPIOS', 'PROYECTO', 'DONACION', 'FONDO GOES'] }" class="form-control w-full text-black">
+                        <div class="label">
+                            <span class="label-text text-white">Tipo de Fondo</span>
+                        </div>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="tipo_fondo"
+                            placeholder="Selecciona o ingresa tipo de fondo"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    @error('tipo_fondo')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div x-data="{ open: false, seleccion: '', opciones: ['NORMAL', 'SEMANA SANTA', 'FIESTAS AGOSTINAS', 'FIN DE AÑO', 'FINLANDESA'] }" class="form-control w-full text-black">
+                        <div class="label">
+                            <span class="label-text text-white">PROGRAMA</span>
+                        </div>
+                    <div class="relative">
+                        <!-- Campo de entrada -->
+                        <input
+                            type="text"
+                            x-model="seleccion"
+                            name="programa"
+                            placeholder="Selecciona o ingresa un programa"
+                            @focus="open = true"
+                            @input="open = true"
+                            @blur="setTimeout(() => open = false, 150)"
+                            class="bg-gray-50 text-black border border-gray-300 rounded-lg w-full px-4 py-2 pr-10 focus:outline-none"
+                        />
+                        <!-- Flecha personalizada -->
+                        <button
+                            type="button"
+                            @click="open = !open"
+                            class="absolute inset-y-0 right-0 flex items-center px-2">
+                            <svg
+                                class="w-4 h-4 text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <!-- Menú desplegable de opciones -->
+                        <ul
+                            x-show="open"
+                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            <template x-for="opcion in opciones" :key="opcion">
+                                <li
+                                    @click="seleccion = opcion; open = false"
+                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                    <span x-text="opcion"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    @error('programa')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+
             </div>
 
             <!-- Contenido dinámico -->
@@ -125,7 +291,7 @@
 
     <!-- Model 2 -->
     <dialog id="my_modal_2" class="modal " x-data="{ openModal: false, activeTab: 'tabla1' }" @click.outside="openModal = false">
-        <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
+    <div class="modal-box max-w-full md:max-w-7xl bg-[#84878d]">
 
 
             <div style="width: 100%; display: flex; justify-content: center; margin: 0px 0px 10px 0px;">
