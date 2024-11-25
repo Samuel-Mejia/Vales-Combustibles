@@ -14,15 +14,15 @@
 <div class="relative flex flex-wrap flex-col  items-center justify-center min-h-screen w-full">
     <div class="flex relative flex-wrap flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-col items-center justify-center pt-7">
 
-    @if(session('user') && optional(session('user'))->username === 'admin')
-    <!-- Botón para la perspectiva de administrador -->
-    <a href="{{ url('/sistema-administracion') }}">
-        <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-            Perspectiva de Administrador
-        </button>
-    </a>
-    @endif
-</div>
+        @if(session('user') && optional(session('user'))->username === 'admin')
+        <!-- Botón para la perspectiva de administrador -->
+        <a href="{{ url('/sistema-administracion') }}">
+            <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
+                Perspectiva de Administrador
+            </button>
+        </a>
+        @endif
+    </div>
             @if(session('success'))
                 <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
                     {{ session('success') }}
@@ -78,7 +78,6 @@
     </a>
 </div>
 
-    </div>
 
     <!-- Modal 1 -->
     <dialog id="my_modal_1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 right-0 left-0 z-50 w-full h-full bg-black bg-opacity-50  justify-center items-center p-4">
