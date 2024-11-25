@@ -36,12 +36,17 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/', function () {
         return view('index');
     });
+<<<<<<< HEAD
     Route::get('/admin', function () {
         $users = User::all();
         return view('admin/AdminPanel', ['users' => $users, 'currentUser' => Session::get('user')]);
     });
 
     //Ruta de los vales
+=======
+    
+    // Ruta de los vales
+>>>>>>> steve
     Route::get('/', [ValesController::class, 'index'])->name('vales.index');
     Route::post('/vales/store', [ValesController::class, 'store'])->name('vales.store');
 
