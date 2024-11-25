@@ -15,26 +15,25 @@
         <div
             class="flex relative flex-wrap flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-col items-center justify-center pt-7">
 
-            @if (session('user') && optional(session('user'))->username === 'admin')
-                <!-- Botón para la perspectiva de administrador -->
-                <a href="{{ url('/sistema-administracion') }}">
-                    <button type="button"
-                        class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
-                        Perspectiva de Administrador
-                    </button>
-                </a>
+    @if(session('user') && optional(session('user'))->username === 'admin')
+    <!-- Botón para la perspectiva de administrador -->
+    <a href="{{ url('/sistema-administracion') }}">
+        <button type="button" class="text-white bg-[#30475e] hover:bg-[#465f79] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-2">
+            Perspectiva de Administrador
+        </button>
+    </a>
+    @endif
+</div>
+            @if(session('success'))
+                <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('success') }}
+                </div>
             @endif
-        </div>
-        @if (session('success'))
-            <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
-                {{ session('success') }}
-            </div>
-        @endif
-        @if (session('error'))
-            <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-                {{ session('error') }}
-            </div>
-        @endif
+            @if(session('error'))
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                    {{ session('error') }}
+                </div>
+            @endif
 
         <div
             class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-12 items-center p-8 max-[1300px]:lg:grid-cols-2">
